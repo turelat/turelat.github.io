@@ -132,9 +132,6 @@
     </div>
     <div>
       <p data-en="Starting prices. The exact figure comes after a short brief and is fixed before work starts.">Цены «от». Точную сумму назову после короткого брифа и зафиксирую до начала работы.</p>
-      <div class="cur-sw mono" role="group" aria-label="Валюта" data-en-label="Currency">
-        <button type="button" data-cur="usd" aria-pressed="true">USD $</button><button type="button" data-cur="rub" aria-pressed="false">RUB ₽</button><button type="button" data-cur="aed" aria-pressed="false">AED</button>
-      </div>
     </div>
   </section>
 
@@ -211,7 +208,7 @@
     <div><small data-en="Upfront">Предоплата</small><b>50%</b><p data-en="the rest on approval">остаток — после приёмки</p></div>
     <div><small data-en="Changes">Правки</small><b data-en="2 rounds included">2 круга включены</b><p data-en="further ones by agreement">дальше — по договорённости</p></div>
     <div><small data-en="Payment by transfer">Оплата переводом</small><b>USDT · ₽ · AED</b><p data-en="roubles in Russia, dirhams in the UAE">рубли в России, дирхамы в ОАЭ</p></div>
-    <div><small data-en="Conversion">Пересчёт</small><b data-en="at today's rate">по курсу дня</b><p data-en="₽ and AED are approximate">₽ и AED — ориентировочно</p></div>
+    <div><small data-en="Timeline">Сроки</small><b data-en="fixed in advance">фиксируем заранее</b><p data-en="before work starts">до начала работы</p></div>
   </div>
 
   <section class="cta" id="contact">
@@ -230,25 +227,16 @@
 <script>
 (() => {
   const { $$ } = AG;
-  // Prices are kept in dollars; roubles and dirhams are worked out at fixed approximate rates and rounded.
-  const RATE = { usd: 1, rub: 81.93, aed: 3.6725 };
+  // Prices are kept in dollars for the English page; the Russian page shows its own rounded rouble prices.
+  const RUB = { 10: 800, 30: 2500, 35: 2900, 60: 5000, 80: 6500, 100: 8000, 150: 12000, 200: 16000, 250: 20000, 300: 25000, 350: 29000, 450: 37000, 580: 48000, 600: 49000, 1000: 82000, 1290: 105000, 1400: 115000, 1770: 145000, 1800: 149000, 2900: 239000, 3800: 310000 };
   const UNIT = { ru: { clip: '/ ролик', hour: '/ час', photo: '/ фото', month: '/ мес', frame: '/ кадр' }, en: { clip: '/ clip', hour: '/ hour', photo: '/ photo', month: '/ month', frame: '/ frame' } };
-  let cur = 'usd';
-  try { const c = localStorage.getItem('ag-cur'); if (RATE[c]) cur = c; } catch (e) {}
-  const nbsp = n => n.toLocaleString('ru-RU').replace(/\s/g, ' ');
-  function money(usd) {
-    if (cur === 'usd') return '$' + nbsp(usd);
-    const v = usd * RATE[cur], step = cur === 'rub' ? (v >= 10000 ? 500 : 100) : (v >= 1000 ? 50 : 5);
-    const r = Math.round(v / step) * step;
-    return cur === 'rub' ? nbsp(r) + ' ₽' : nbsp(r) + ' AED';
-  }
+  const nb = n => n.toLocaleString('ru-RU').replace(/\s/g, ' ');
+  const money = (usd, l) => l === 'en' ? '$' + nb(usd) : nb(RUB[usd] || Math.round(usd * 82 / 500) * 500) + ' ₽';
   function render() {
     const l = AG.lang(), from = l === 'en' ? 'from ' : 'от ';
-    $$('[data-cur]').forEach(b => b.setAttribute('aria-pressed', b.dataset.cur === cur));
-    $$('.r .p').forEach(el => { const u = el.dataset.unit; el.innerHTML = '<small>' + from + '</small>' + money(+el.dataset.usd) + (u ? ' <small>' + UNIT[l][u] + '</small>' : ''); });
-    $$('.pack [data-usd]').forEach(el => el.textContent = money(+el.dataset.usd));
+    $$('.r .p').forEach(el => { const u = el.dataset.unit; el.innerHTML = '<small>' + from + '</small>' + money(+el.dataset.usd, l) + (u ? ' <small>' + UNIT[l][u] + '</small>' : ''); });
+    $$('.pack [data-usd]').forEach(el => el.textContent = money(+el.dataset.usd, l));
   }
-  $$('[data-cur]').forEach(b => b.addEventListener('click', () => { cur = b.dataset.cur; try { localStorage.setItem('ag-cur', cur); } catch (e) {} render(); }));
   AG.onLang(render);
   AG.init();
 })();
