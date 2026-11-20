@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Цены — Артур Габараев</title>
+<meta name="description" content="Цены Артура Габараева: монтаж, сайты, логотипы, 3D, презентации, соцсети и боты. В долларах и рублях, пакеты со скидкой.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Цены — Артур Габараев">
+<meta property="og:description" content="Монтаж от $80, сайт-визитка от $1 000, логотип от $450. Пакеты со скидкой около 25%.">
+<meta property="og:image" content="https://turelat.github.io/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://turelat.github.io/assets/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@300..900&family=JetBrains+Mono:wght@400;600&family=Manrope:wght@400..800&display=swap">
+<link rel="stylesheet" href="assets/ag.css">
+</head>
+<body>
+<script>try { var t = localStorage.getItem('ag-theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {} document.documentElement.dataset.titleRu = 'Цены — Артур Габараев'; document.documentElement.dataset.titleEn = 'Prices — Artur Gabaraev';</script>
+<style>
+.top { padding-top: calc(118px + env(safe-area-inset-top, 0px)); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: end; padding-bottom: 26px; border-bottom: 1px solid var(--line); }
+.top .tag { font-size: 12.5px; color: var(--mut); }
+.top .tag b { color: var(--red); font-weight: 600; margin-right: 8px; }
+.top h1 { margin-top: 14px; font: 900 clamp(56px, 9vw, 132px)/.88 Geologica, sans-serif; letter-spacing: -.045em; }
+.top h1 i { color: var(--red); font-style: normal; }
+.top p { max-width: 400px; color: var(--mut); font-size: 15.5px; }
+.cur-sw { display: inline-flex; margin-top: 16px; padding: 3px; border-radius: 99px; border: 1px solid var(--line); font-size: 13px; }
+.cur-sw button { padding: 7px 14px; border-radius: 99px; color: var(--mut); transition: background-color .3s, color .3s; }
+.cur-sw button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+@media (max-width: 760px) { .top { grid-template-columns: 1fr; } }
+
+/* packages */
+.h3row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 56px 0 18px; flex-wrap: wrap; }
+.h3row h2 { font: 800 clamp(26px, 3vw, 38px) Geologica, sans-serif; letter-spacing: -.02em; }
+.h3row span { color: var(--mut); font-size: 14px; }
+.packs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.pack { border: 1px solid var(--line); border-radius: 16px; background: var(--cell); padding: 26px 26px 28px; display: flex; flex-direction: column; gap: 16px; position: relative; min-width: 0; }
+.pack.hit { background: var(--stage); color: var(--stage-fg); border-color: var(--stage); }
+.pack.hit .mut { color: #9A978F; }
+:root[data-theme="dark"] .pack.hit { border-color: var(--red); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pack.hit { border-color: var(--red); } }
+.pack .n { font-size: 12px; color: var(--red); display: flex; justify-content: space-between; }
+.pack .n em { font-style: normal; background: var(--red); color: var(--on-red); padding: 3px 9px; border-radius: 99px; font-size: 11px; }
+.pack h3 { font-size: 26px; font-weight: 800; letter-spacing: -.015em; }
+.pack ul { display: flex; flex-direction: column; gap: 8px; font-size: 15px; }
+.pack li { display: flex; gap: 10px; }
+.pack li::before { content: ''; flex: none; width: 6px; height: 6px; margin-top: 9px; border-radius: 50%; background: var(--red); }
+.pack .price { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); }
+.pack.hit .price { border-top-color: #2C2C31; }
+.pack .price b { font: 800 34px Geologica, sans-serif; letter-spacing: -.02em; }
+.pack .price s { color: var(--mut); font-size: 14px; margin-left: 8px; }
+.pack.hit .price s { color: #8A877F; }
+.pack .price small { display: block; font-size: 13px; color: var(--mut); }
+.mut { color: var(--mut); }
+.pack .ask { font-weight: 700; font-size: 14px; color: var(--mut); transition: color .25s; }
+.pack .ask:hover { color: var(--red); }
+.pack.hit .ask { color: #9A978F; }
+.pack.hit .ask:hover { color: #ff3b4e; }
+@media (max-width: 960px) { .packs { grid-template-columns: 1fr; } }
+
+/* list */
+.cat { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 24px; border-top: 1px solid var(--line); padding: 26px 0; }
+.cat:last-of-type { border-bottom: 1px solid var(--line); }
+.cat h3 { font-size: 22px; font-weight: 700; letter-spacing: -.01em; display: flex; gap: 12px; align-items: baseline; }
+.cat h3 b { font: 600 12.5px 'JetBrains Mono', monospace; color: var(--red); }
+.rows { display: flex; flex-direction: column; }
+.r { display: grid; grid-template-columns: minmax(0, 1fr) 150px 120px; gap: 16px; align-items: baseline; padding: 11px 0; border-bottom: 1px dashed var(--line); }
+.r:last-child { border-bottom: 0; }
+.r span { font-size: 16px; }
+.r span small { display: block; color: var(--mut); font-size: 13px; }
+.r .t { font-size: 12.5px; color: var(--mut); }
+.r .p { text-align: right; font: 700 18px Geologica, sans-serif; white-space: nowrap; }
+.r .p small { font: 500 12.5px Manrope, sans-serif; color: var(--mut); }
+@media (max-width: 860px) { .cat { grid-template-columns: 1fr; gap: 10px; } }
+@media (max-width: 560px) { .r { grid-template-columns: minmax(0, 1fr) auto; } .r .t { grid-column: 1; grid-row: 2; } .r .p { grid-row: 1 / 3; grid-column: 2; } }
+
+.notes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line); margin-top: 48px; background: var(--cell); }
+.notes div { padding: 20px 22px; border-right: 1px solid var(--line); min-width: 0; }
+.notes div:last-child { border-right: 0; }
+.notes small { display: block; font-size: 11.5px; color: var(--mut); }
+.notes b { font: 700 16px Geologica, sans-serif; }
+.notes p { font-size: 13.5px; color: var(--mut); margin-top: 4px; }
+@media (max-width: 860px) { .notes { grid-template-columns: 1fr 1fr; } .notes div:nth-child(2) { border-right: 0; } .notes div:nth-child(-n+2) { border-bottom: 1px solid var(--line); } }
+@media (max-width: 480px) { .notes { grid-template-columns: 1fr; } .notes div { border-right: 0 !important; border-bottom: 1px solid var(--line); } .notes div:last-child { border-bottom: 0; } }
+
+.cta { margin-top: 72px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; padding: 40px; border-radius: 20px; background: var(--stage); color: var(--stage-fg); }
+.cta h2 { font: 800 clamp(28px, 3.4vw, 46px)/1.05 Geologica, sans-serif; letter-spacing: -.02em; }
+.cta p { margin-top: 10px; color: #9A978F; max-width: 560px; }
+.cta .pill { padding: 20px 30px; font-size: 17px; }
+@media (max-width: 760px) { .cta { grid-template-columns: 1fr; padding: 28px 22px; } }
+</style>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html" data-page="index.html" aria-label="На главную" data-en-label="Home">AG<i>.</i></a>
+    <nav class="links mono" aria-label="Разделы" data-en-label="Sections">
+      <a href="index.html#services"><b>01</b><span data-scramble data-en="Services">Услуги</span></a>
+      <a href="index.html#works"><b>02</b><span data-scramble data-en="Work">Работы</span></a>
+      <a href="#top" aria-current="page"><b>03</b><span data-scramble data-en="Prices">Цены</span></a>
+      <a href="index.html#contact"><b>04</b><span data-scramble data-en="Contact">Контакты</span></a>
+    </nav>
+    <span class="sp"></span>
+    <div class="theme" role="group" aria-label="Тема" data-en-label="Theme">
+      <button type="button" data-theme-set="light" aria-label="Светлая тема" data-en-label="Light theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></svg></button>
+      <button type="button" data-theme-set="dark" aria-label="Тёмная тема" data-en-label="Dark theme"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1Z"/></svg></button>
+    </div>
+    <div class="lang mono"><button type="button" data-lang-set="ru">RU</button><span>/</span><button type="button" data-lang-set="en">EN</button></div>
+    <a class="pill tg magnetic" href="https://t.me/turelat" data-tg target="_blank" rel="noopener" data-mag=".5"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5ZM9.3 13.6l9.3-5.9c.4-.3.8-.1.5.2l-7.9 7.2-.3 3.4-1.6-4.9Z"/></svg>Telegram</a>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="mmenu" aria-label="Меню" data-en-label="Menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mmenu" id="mmenu" hidden>
+  <a class="big" href="index.html#services"><b>01</b><span data-en="Services">Услуги</span></a>
+  <a class="big" href="index.html#works"><b>02</b><span data-en="Work">Работы</span></a>
+  <a class="big" href="#top"><b>03</b><span data-en="Prices">Цены</span></a>
+  <a class="big" href="index.html#contact"><b>04</b><span data-en="Contact">Контакты</span></a>
+  <div class="row">
+    <a class="pill tg" href="https://t.me/turelat" data-tg target="_blank" rel="noopener">Telegram</a>
+    <div class="lang mono"><button type="button" data-lang-set="ru">RU</button><span>/</span><button type="button" data-lang-set="en">EN</button></div>
+  </div>
+</div>
+
+<main id="top" class="wrap">
+  <section class="top">
+    <div>
+      <a class="tag mono" href="index.html" data-page="index.html"><b>←</b><span data-en="Artur Gabaraev">Артур Габараев</span></a>
+      <h1 data-en="Prices<i>.</i>">Цены<i>.</i></h1>
+    </div>
+    <div>
+      <p data-en="Starting prices. The exact figure comes after a short brief and is fixed before work starts.">Цены «от». Точную сумму назову после короткого брифа и зафиксирую до начала работы.</p>
+      <div class="cur-sw mono" role="group" aria-label="Валюта" data-en-label="Currency">
+        <button type="button" data-cur="usd" aria-pressed="true">USD $</button><button type="button" data-cur="rub" aria-pressed="false">RUB ₽</button><button type="button" data-cur="aed" aria-pressed="false">AED</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="h3row"><h2 data-en="Packages">Пакеты</h2><span data-en="Together is 25–40% cheaper than the same services separately">Вместе — на 25–40% дешевле, чем те же услуги по отдельности</span></div>
+  <div class="packs">
+    <article class="pack rv" style="--d:0">
+      <span class="n mono">[01]</span>
+      <h3 data-en="Social media: start">Соцсети: старт</h3>
+      <ul><li data-en="4 Reels or Shorts">4 Reels или Shorts</li><li data-en="4 covers in one style">4 обложки в одном стиле</li><li data-en="Subtitles on every clip">Субтитры на каждом ролике</li></ul>
+      <div class="price"><b data-usd="350">$350</b><s data-usd="580">$580</s><small class="mut" data-en="for the set">за комплект</small></div>
+      <a class="ask" href="https://t.me/turelat" data-tg data-tg-ru="Здравствуйте, Артур! Интересует пакет «Соцсети: старт»." data-tg-en="Hello Artur! I'm interested in the “Social media: start” package." target="_blank" rel="noopener"><span data-en="Discuss on Telegram">Обсудить в Telegram</span> →</a>
+    </article>
+    <article class="pack hit rv" style="--d:1">
+      <span class="n mono">[02]<em data-en="popular">популярный</em></span>
+      <h3 data-en="Launch">Запуск</h3>
+      <ul><li data-en="Logo">Логотип</li><li data-en="Business-card website, RU / EN">Сайт-визитка, RU / EN</li><li data-en="4 Reels for the launch">4 Reels к запуску</li></ul>
+      <div class="price"><b data-usd="1290">$1 290</b><s data-usd="1770">$1 770</s><small data-en="for the set">за комплект</small></div>
+      <a class="ask" href="https://t.me/turelat" data-tg data-tg-ru="Здравствуйте, Артур! Интересует пакет «Запуск»." data-tg-en="Hello Artur! I'm interested in the “Launch” package." target="_blank" rel="noopener"><span data-en="Discuss on Telegram">Обсудить в Telegram</span> →</a>
+    </article>
+    <article class="pack rv" style="--d:2">
+      <span class="n mono">[03]</span>
+      <h3 data-en="Brand, turnkey">Бренд под ключ</h3>
+      <ul><li data-en="Brand identity">Айдентика</li><li data-en="Website, 5–7 pages">Сайт на 5–7 страниц</li><li data-en="1 month of social media">1 месяц ведения соцсетей</li></ul>
+      <div class="price"><b data-usd="2900">$2 900</b><s data-usd="3800">$3 800</s><small class="mut" data-en="for the set">за комплект</small></div>
+      <a class="ask" href="https://t.me/turelat" data-tg data-tg-ru="Здравствуйте, Артур! Интересует пакет «Бренд под ключ»." data-tg-en="Hello Artur! I'm interested in the “Brand, turnkey” package." target="_blank" rel="noopener"><span data-en="Discuss on Telegram">Обсудить в Telegram</span> →</a>
+    </article>
+  </div>
+
+  <div class="h3row"><h2 data-en="Full price list">Полный прайс</h2><span data-en="Timelines are for a typical job">Сроки — для типовой задачи</span></div>
+
+  <div class="cat rv"><h3><b>01</b><span data-en="Video">Видео</span></h3><div class="rows">
+    <div class="r"><span data-en="Reels / Shorts<small>15–60 s</small>">Reels / Shorts<small>15–60 сек</small></span><em class="t mono" data-en="1–2 days">1–2 дня</em><b class="p" data-usd="80" data-unit="clip"></b></div>
+    <div class="r"><span data-en="YouTube / long video<small>up to 15 min</small>">YouTube / длинный ролик<small>до 15 мин</small></span><em class="t mono" data-en="3–5 days">3–5 дней</em><b class="p" data-usd="250" data-unit="clip"></b></div>
+    <div class="r"><span data-en="Promo with motion graphics">Промо с моушен-графикой</span><em class="t mono" data-en="5–7 days">5–7 дней</em><b class="p" data-usd="350" data-unit="clip"></b></div>
+    <div class="r"><span data-en="Colour grading<small>add-on</small>">Цветокоррекция<small>к ролику</small></span><em class="t mono"></em><b class="p" data-usd="60"></b></div>
+    <div class="r"><span data-en="Subtitles and titles<small>add-on</small>">Субтитры и титры<small>к ролику</small></span><em class="t mono"></em><b class="p" data-usd="30"></b></div>
+    <div class="r"><span data-en="Hourly editing">Почасовой монтаж</span><em class="t mono"></em><b class="p" data-usd="35" data-unit="hour"></b></div>
+  </div></div>
+
+  <div class="cat rv"><h3><b>02</b><span data-en="Websites">Сайты</span></h3><div class="rows">
+    <div class="r"><span data-en="Landing page">Лендинг</span><em class="t mono" data-en="5–7 days">5–7 дней</em><b class="p" data-usd="600"></b></div>
+    <div class="r"><span data-en="Business-card / portfolio site<small>RU / EN, mobile</small>">Сайт-визитка / портфолио<small>RU / EN, адаптив</small></span><em class="t mono" data-en="7–10 days">7–10 дней</em><b class="p" data-usd="1000"></b></div>
+    <div class="r"><span data-en="Corporate site<small>5–7 pages, SEO</small>">Корпоративный сайт<small>5–7 страниц, SEO</small></span><em class="t mono" data-en="2–3 weeks">2–3 недели</em><b class="p" data-usd="1800"></b></div>
+  </div></div>
+
+  <div class="cat rv"><h3><b>03</b><span data-en="Logo &amp; identity">Логотип и айдентика</span></h3><div class="rows">
+    <div class="r"><span data-en="Logo<small>3 concepts, source files</small>">Логотип<small>3 концепции, исходники</small></span><em class="t mono" data-en="5–7 days">5–7 дней</em><b class="p" data-usd="450"></b></div>
+    <div class="r"><span data-en="Brand identity<small>logo, colours, type, guidelines</small>">Айдентика<small>логотип, цвета, шрифты, гайдлайн</small></span><em class="t mono" data-en="2–3 weeks">2–3 недели</em><b class="p" data-usd="1400"></b></div>
+    <div class="r"><span data-en="Cover, thumbnail or banner">Обложка, превью или баннер</span><em class="t mono" data-en="1 day">1 день</em><b class="p" data-usd="35"></b></div>
+    <div class="r"><span data-en="Photo retouching">Ретушь фото</span><em class="t mono"></em><b class="p" data-usd="10" data-unit="photo"></b></div>
+  </div></div>
+
+  <div class="cat rv"><h3><b>04</b><span data-en="Social media">Соцсети</span></h3><div class="rows">
+    <div class="r"><span data-en="Account management<small>content plan, posts, Reels, design</small>">Ведение аккаунта<small>контент-план, посты, Reels, оформление</small></span><em class="t mono"></em><b class="p" data-usd="600" data-unit="month"></b></div>
+  </div></div>
+
+  <div class="cat rv"><h3><b>05</b><span data-en="3D in Blender">3D в Blender</span></h3><div class="rows">
+    <div class="r"><span data-en="Product render">Предметный рендер</span><em class="t mono" data-en="2–3 days">2–3 дня</em><b class="p" data-usd="100" data-unit="frame"></b></div>
+    <div class="r"><span data-en="Product set<small>3–5 angles</small>">Комплект для товара<small>3–5 ракурсов</small></span><em class="t mono" data-en="3–5 days">3–5 дней</em><b class="p" data-usd="450"></b></div>
+    <div class="r"><span data-en="Interior render">Интерьерный рендер</span><em class="t mono"></em><b class="p" data-usd="200" data-unit="frame"></b></div>
+    <div class="r"><span data-en="3D animation<small>10–15 s</small>">3D-анимация<small>10–15 сек</small></span><em class="t mono"></em><b class="p" data-usd="600"></b></div>
+  </div></div>
+
+  <div class="cat rv"><h3><b>06</b><span data-en="Presentations">Презентации</span></h3><div class="rows">
+    <div class="r"><span data-en="Deck<small>10–15 slides, your brand style</small>">Презентация<small>10–15 слайдов, в фирменном стиле</small></span><em class="t mono"></em><b class="p" data-usd="300"></b></div>
+  </div></div>
+
+  <div class="cat rv"><h3><b>07</b><span data-en="Scripts &amp; bots">Скрипты и боты</span></h3><div class="rows">
+    <div class="r"><span data-en="Script or automation<small>Python, AI</small>">Скрипт или автоматизация<small>Python, AI</small></span><em class="t mono"></em><b class="p" data-usd="150"></b></div>
+    <div class="r"><span data-en="Telegram bot">Telegram-бот</span><em class="t mono"></em><b class="p" data-usd="300"></b></div>
+  </div></div>
+
+  <div class="notes">
+    <div><small data-en="Upfront">Предоплата</small><b>50%</b><p data-en="the rest on approval">остаток — после приёмки</p></div>
+    <div><small data-en="Changes">Правки</small><b data-en="2 rounds included">2 круга включены</b><p data-en="further ones by agreement">дальше — по договорённости</p></div>
+    <div><small data-en="Payment by transfer">Оплата переводом</small><b>USDT · ₽ · AED</b><p data-en="roubles in Russia, dirhams in the UAE">рубли в России, дирхамы в ОАЭ</p></div>
+    <div><small data-en="Conversion">Пересчёт</small><b data-en="at today's rate">по курсу дня</b><p data-en="₽ and AED are approximate">₽ и AED — ориентировочно</p></div>
+  </div>
+
+  <section class="cta" id="contact">
+    <div><h2 data-en="Get an exact quote in 24 hours">Точная цена — за 24 часа</h2><p data-en="Write what you need and by when. I'll reply with the price, timeline and stages.">Напишите, что нужно и к какому сроку. Отвечу с ценой, сроком и этапами.</p></div>
+    <a class="pill tg magnetic" href="https://t.me/turelat" data-tg data-tg-ru="Здравствуйте, Артур! Хочу рассчитать стоимость проекта." data-tg-en="Hello Artur! I'd like a quote for a project." target="_blank" rel="noopener" data-mag=".5"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5ZM9.3 13.6l9.3-5.9c.4-.3.8-.1.5.2l-7.9 7.2-.3 3.4-1.6-4.9Z"/></svg><span data-en="Write on Telegram">Написать в Telegram</span></a>
+  </section>
+
+  <footer class="foot mono"><span data-en="© 2026 Artur Gabaraev">© 2026 Артур Габараев</span><span data-en="Dubai · Moscow · online">Дубай · Москва · онлайн</span><a href="index.html" data-page="index.html" data-en="← Back to the main page">← На главную</a></footer>
+</main>
+
+<div class="mbar" id="mbar"><a class="pill tg" href="https://t.me/turelat" data-tg target="_blank" rel="noopener" data-en="Message me on Telegram">Написать в Telegram</a></div>
+<div class="toast" id="toast" role="status"></div>
+<div class="cur" aria-hidden="true"></div><div class="ring" aria-hidden="true"><i></i><b></b></div>
+
+<script src="assets/ag.js"></script>
+<script>
+(() => {
+  const { $$ } = AG;
+  // Prices are kept in dollars; roubles and dirhams are worked out at fixed approximate rates and rounded.
+  const RATE = { usd: 1, rub: 81.93, aed: 3.6725 };
+  const UNIT = { ru: { clip: '/ ролик', hour: '/ час', photo: '/ фото', month: '/ мес', frame: '/ кадр' }, en: { clip: '/ clip', hour: '/ hour', photo: '/ photo', month: '/ month', frame: '/ frame' } };
+  let cur = 'usd';
+  try { const c = localStorage.getItem('ag-cur'); if (RATE[c]) cur = c; } catch (e) {}
+  const nbsp = n => n.toLocaleString('ru-RU').replace(/\s/g, ' ');
+  function money(usd) {
+    if (cur === 'usd') return '$' + nbsp(usd);
+    const v = usd * RATE[cur], step = cur === 'rub' ? (v >= 10000 ? 500 : 100) : (v >= 1000 ? 50 : 5);
+    const r = Math.round(v / step) * step;
+    return cur === 'rub' ? nbsp(r) + ' ₽' : nbsp(r) + ' AED';
+  }
+  function render() {
+    const l = AG.lang(), from = l === 'en' ? 'from ' : 'от ';
+    $$('[data-cur]').forEach(b => b.setAttribute('aria-pressed', b.dataset.cur === cur));
+    $$('.r .p').forEach(el => { const u = el.dataset.unit; el.innerHTML = '<small>' + from + '</small>' + money(+el.dataset.usd) + (u ? ' <small>' + UNIT[l][u] + '</small>' : ''); });
+    $$('.pack [data-usd]').forEach(el => el.textContent = money(+el.dataset.usd));
+  }
+  $$('[data-cur]').forEach(b => b.addEventListener('click', () => { cur = b.dataset.cur; try { localStorage.setItem('ag-cur', cur); } catch (e) {} render(); }));
+  AG.onLang(render);
+  AG.init();
+})();
+</script>
+</body>
+</html>

@@ -4,781 +4,465 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Артур Габараев</title>
-<meta name="description" content="Артур Габараев — сайты, программирование, видео, 3D, айдентика и соцсети.">
+<meta name="description" content="Артур Габараев — видеомонтаж, сайты, айдентика, 3D, презентации и соцсети для бизнеса. Дубай · Москва · онлайн.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Артур Габараев — монтаж, сайты и визуал для бизнеса">
+<meta property="og:description" content="Ролики, сайты, логотипы, 3D и соцсети в одном стиле. Дубай · Москва · онлайн. RU / EN.">
+<meta property="og:image" content="https://turelat.github.io/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://turelat.github.io/assets/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400..800&family=Manrope:wght@400..800&display=swap">
-<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@300..900&family=JetBrains+Mono:wght@400;600&family=Manrope:wght@400..800&display=swap">
+<link rel="stylesheet" href="assets/ag.css">
 </head>
 <body>
+<script>try { var t = localStorage.getItem('ag-theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {} document.documentElement.dataset.titleRu = 'Артур Габараев'; document.documentElement.dataset.titleEn = 'Artur Gabaraev';</script>
 <style>
-/* Layout: one dark stage. A giant surname sits behind the portrait and lights up under the cursor;
-   below it, the services list, a physics "pit" of skills, the work process, the timeline and a loud contact block. */
-:root {
-  --bg: #050505;
-  --surface: #121214;
-  --line: #2A2A2E;
-  --fg: #F2F1EC;
-  --muted: #9A9A93;
-  --ghost: #26262A;
-  --red: #FF3B4E;
-  --red-fill: #E11D35;
-  --display: 'Unbounded', 'Arial Black', Arial, sans-serif;
-  --body: 'Manrope', 'Segoe UI', Arial, sans-serif;
-  --gut-l: max(16px, env(safe-area-inset-left, 0px));
-  --gut-r: max(16px, env(safe-area-inset-right, 0px));
-  color-scheme: dark;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--bg); color: var(--fg); font: 400 17px/1.55 var(--body); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--bg); }
-a { color: inherit; text-decoration: none; }
-h1, h2, h3 { font-family: var(--display); font-weight: 700; margin: 0; text-wrap: balance; line-height: 1.08; }
-p { margin: 0; }
-::selection { background: var(--red-fill); color: var(--fg); }
-:focus-visible { outline: 2px solid var(--red); outline-offset: 4px; border-radius: 4px; }
-.wrap { max-width: 1320px; margin: 0 auto; padding-left: var(--gut-l); padding-right: var(--gut-r); }
-@media (min-width: 720px) { .wrap { padding-left: max(40px, env(safe-area-inset-left, 0px)); padding-right: max(40px, env(safe-area-inset-right, 0px)); } }
-.eyebrow { font: 600 13px/1 var(--display); letter-spacing: .22em; text-transform: uppercase; color: var(--red); }
-section { position: relative; }
-.sec { padding-block: clamp(80px, 12vw, 150px); }
-.sec-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: clamp(40px, 6vw, 72px); }
-.sec-head h2 { font-size: clamp(34px, 5.4vw, 72px); max-width: 15ch; }
-.sec-head p { color: var(--muted); max-width: 38ch; }
-
-/* ---------- nav ---------- */
-.nav { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 50; transition: transform .45s cubic-bezier(.2,.8,.2,1); }
-.nav.away { transform: translateY(-110%); }
-
-/* ---------- preloader ---------- */
-.pre { position: fixed; inset: 0; z-index: 90; pointer-events: none; animation: pre-failsafe .01s 4.5s forwards; }
-.pre .pre-red, .pre .pre-dark { position: absolute; inset: 0; transition: transform .9s cubic-bezier(.76,0,.24,1); }
-.pre .pre-red { background: var(--red-fill); transition-delay: .12s; }
-.pre .pre-dark { background: var(--bg); display: flex; flex-direction: column; justify-content: space-between;
-  padding: calc(28px + env(safe-area-inset-top, 0px)) var(--gut-r) calc(24px + env(safe-area-inset-bottom, 0px)) var(--gut-l); }
-.pre-top { display: flex; justify-content: space-between; gap: 16px; font: 600 12px/1.2 var(--display); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
-.pre-num { font: 800 clamp(96px, 24vw, 340px)/.8 var(--display); letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
-.pre-num i { font-style: normal; color: var(--red); }
-.pre-line { position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; background: var(--red); transform-origin: left; transform: scaleX(var(--p, 0)); }
-.pre.done .pre-dark { transform: translateY(-100%); }
-.pre.done .pre-red { transform: translateY(-100%); }
-.pre.gone { display: none; }
-@keyframes pre-failsafe { to { visibility: hidden; } }
-/* hero entrance after the preloader */
-.intro .bigword, .intro .portrait, .intro .hero-left > *, .intro .stat { opacity: 0; }
-.enter .bigword { animation: rise 1.1s cubic-bezier(.2,.8,.2,1) both; }
-.enter .portrait { animation: portrait-in 1.3s cubic-bezier(.2,.8,.2,1) .15s both; }
-.enter .hero-left > *, .enter .stat { animation: rise .9s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(.35s + var(--d, 0) * .07s); }
-@keyframes rise { from { opacity: 0; transform: translateY(60px); } }
-@keyframes portrait-in { from { opacity: 0; transform: translateX(-50%) translateY(40px) scale(1.04); } }
-@media (max-width: 860px) { @keyframes portrait-in { from { opacity: 0; transform: translateY(40px) scale(1.04); } } }
-
-/* ---------- film grain, scroll progress, click burst ---------- */
-.grain { position: fixed; inset: -50%; z-index: 85; pointer-events: none; opacity: .07; mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  animation: grain .9s steps(6) infinite; }
-@keyframes grain { 0% { transform: translate(0,0); } 20% { transform: translate(-6%,4%); } 40% { transform: translate(5%,-3%); } 60% { transform: translate(-3%,-6%); } 80% { transform: translate(6%,5%); } 100% { transform: translate(0,0); } }
-.progress { position: fixed; left: 0; right: 0; top: env(safe-area-inset-top, 0px); height: 2px; z-index: 55; background: var(--red); transform-origin: left; transform: scaleX(var(--sp, 0)); pointer-events: none; }
-.burst { position: fixed; left: 0; top: 0; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; border: 1.5px solid var(--red); z-index: 79; pointer-events: none; animation: burst .6s cubic-bezier(.2,.8,.2,1) forwards; }
-@keyframes burst { to { transform: translate3d(var(--x), var(--y), 0) scale(7); opacity: 0; } }
-
-/* ---------- status pill ---------- */
-.status { display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; font: 600 12px/1 var(--body); color: var(--muted); border: 1px solid var(--line); border-radius: 99px; padding: 9px 14px 9px 12px; background: rgba(5,5,5,.5); backdrop-filter: blur(6px); }
-.status .dot { width: 8px; height: 8px; border-radius: 50%; background: #3ACF6A; box-shadow: 0 0 0 0 rgba(58,207,106,.6); animation: live 2s infinite; }
-.status b { color: var(--fg); font-weight: 700; font-variant-numeric: tabular-nums; }
-@keyframes live { 70% { box-shadow: 0 0 0 9px rgba(58,207,106,0); } 100% { box-shadow: 0 0 0 0 rgba(58,207,106,0); } }
-
-/* ---------- reveal on scroll ---------- */
-.rv-on .rv { opacity: 0; transform: translateY(46px); clip-path: inset(0 0 100% 0); transition: opacity .8s, transform 1s cubic-bezier(.2,.8,.2,1), clip-path 1s cubic-bezier(.2,.8,.2,1); transition-delay: calc(var(--d, 0) * .07s); }
-.rv-on .rv.in { opacity: 1; transform: none; clip-path: inset(-20% -20% -20% -20%); }
-.rv-on .rv-soft { opacity: 0; transform: translateY(30px); transition: opacity .7s, transform .9s cubic-bezier(.2,.8,.2,1); transition-delay: calc(var(--d, 0) * .06s); }
-.rv-on .rv-soft.in { opacity: 1; transform: none; }
-/* service rows come in almost together so fast scrolling never waits on them */
-.rv-on .svc.rv-soft { transition-duration: .45s, .55s; transition-delay: calc(var(--d, 0) * .025s); }
-
-/* ---------- easter egg palette ---------- */
-:root.alt { --red: #4D7CFF; --red-fill: #2F5BFF; }
-.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; }
-.logo { font: 800 18px/1 var(--display); letter-spacing: .02em; }
-.logo span { color: var(--red); }
-.nav-links { display: flex; gap: 28px; font-size: 15px; color: var(--muted); }
-.nav-links a:hover { color: var(--fg); }
-.nav-right { display: flex; align-items: center; gap: 10px; }
-.lang { position: relative; display: flex; border: 1px solid var(--line); border-radius: 99px; padding: 3px; background: rgba(5,5,5,.6); backdrop-filter: blur(8px); }
-/* a light pill slides between RU and EN instead of jumping */
-.lang::before { content: ""; position: absolute; top: 3px; bottom: 3px; left: 3px; width: calc(50% - 3px); border-radius: 99px; background: var(--fg); transition: transform .5s cubic-bezier(.65,0,.25,1); }
-.lang.en::before { transform: translateX(100%); }
-.lang button { position: relative; width: 40px; font: 700 12px/1 var(--display); color: var(--muted); background: none; border: 0; padding: 8px 0; border-radius: 99px; cursor: pointer; transition: color .4s; }
-.lang button[aria-pressed="true"] { color: var(--bg); }
-.btn { display: inline-flex; align-items: center; gap: 10px; font: 600 15px/1 var(--body); padding: 15px 22px; border-radius: 99px; border: 1px solid var(--line); background: rgba(5,5,5,.6); cursor: pointer; color: var(--fg); transition: background .25s, border-color .25s, color .25s; white-space: nowrap; }
-.btn:hover { border-color: var(--fg); }
-.btn.red { background: var(--red-fill); border-color: var(--red-fill); }
-.btn.red:hover { background: var(--fg); border-color: var(--fg); color: var(--bg); }
-.btn.small { padding: 11px 16px; font-size: 13px; }
-@media (max-width: 860px) { .nav-links { display: none; } }
-/* mobile menu: a red sheet that grows out of the burger */
-.burger { display: none; position: relative; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); background: rgba(5,5,5,.6); backdrop-filter: blur(8px); cursor: pointer; padding: 0; }
-.burger span { position: absolute; left: 14px; right: 14px; height: 2px; background: var(--fg); transition: transform .35s, top .35s; }
-.burger span:nth-child(1) { top: 18px; } .burger span:nth-child(2) { top: 26px; }
-.burger[aria-expanded="true"] span:nth-child(1) { top: 22px; transform: rotate(45deg); }
-.burger[aria-expanded="true"] span:nth-child(2) { top: 22px; transform: rotate(-45deg); }
-@media (max-width: 860px) { .burger { display: block; } }
-@media (max-width: 560px) { .nav-right > .btn { display: none; } }
-.mmenu { position: fixed; inset: 0; z-index: 45; background: var(--red-fill); display: flex; flex-direction: column; justify-content: flex-end; gap: 40px;
-  padding: calc(100px + env(safe-area-inset-top, 0px)) var(--gut-r) calc(40px + env(safe-area-inset-bottom, 0px)) var(--gut-l);
-  clip-path: circle(0px at calc(100% - 40px) 42px); transition: clip-path .65s cubic-bezier(.7,0,.2,1); }
-.mmenu[hidden] { display: none; }
-.mmenu.open { clip-path: circle(160% at calc(100% - 40px) 42px); }
-.mmenu nav { display: flex; flex-direction: column; gap: 4px; }
-.mmenu nav a { font: 800 clamp(36px, 11vw, 68px)/1.08 var(--display); letter-spacing: -.02em; opacity: 0; transform: translateY(40px); transition: opacity .4s, transform .6s cubic-bezier(.2,.8,.2,1); transition-delay: calc(.12s + var(--i) * .06s); }
-.mmenu.open nav a { opacity: 1; transform: none; }
-.mmenu-foot { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; color: #FFE1E4; border-top: 1px solid rgba(255,225,228,.35); padding-top: 18px; }
-/* sticky contact bar on phones */
-.mbar { display: none; }
-@media (hover: none), (max-width: 760px) {
-  .mbar { display: flex; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 44;
-    padding: 14px var(--gut-r) calc(14px + env(safe-area-inset-bottom, 0px)) var(--gut-l);
-    background: linear-gradient(to top, rgba(5,5,5,.96) 55%, transparent); transform: translateY(110%); transition: transform .45s cubic-bezier(.2,.8,.2,1); }
-  .mbar.show { transform: none; }
-  .mbar .btn { flex: 1; justify-content: center; }
-  .toast { bottom: calc(96px + env(safe-area-inset-bottom, 0px)); }
-}
-/* services on touch screens: tap a line to open its animation */
-@media (hover: none) {
-  .svc { cursor: pointer; padding-right: 44px; }
-  .svc::after { content: "+"; position: absolute; right: 6px; top: 24px; font: 400 30px/1 var(--display); transition: transform .35s; }
-  .svc.open::after { transform: rotate(45deg); }
-  .svc.open::before { transform: scaleY(1); }
-  .svc.open p, .svc.open .tools span { color: var(--fg); border-color: rgba(242,241,236,.45); }
-}
-.preview.inline { position: relative; left: auto; top: auto; transform: none !important; width: 100%; max-width: 440px; opacity: 1; box-shadow: none; animation: pop .45s cubic-bezier(.2,.8,.2,1); }
-.preview.inline:not(.on) { display: none; }
-.preview.inline canvas { width: 100%; height: auto; aspect-ratio: 3 / 2; }
-@keyframes pop { from { transform: translateY(14px) scale(.96); opacity: 0; } }
-
 /* ---------- hero ---------- */
-.hero { min-height: min(100svh, 980px); display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; padding-top: 90px; }
-.bigword { position: absolute; left: 0; right: 0; top: clamp(110px, 16vh, 170px); text-align: center; font: 800 12.6vw/0.9 var(--display); letter-spacing: -.02em; user-select: none; pointer-events: none; white-space: nowrap; }
-.bigword .outline { color: transparent; -webkit-text-stroke: 1.5px var(--ghost); }
-.bigword .lit { position: absolute; inset: 0; color: var(--red); -webkit-text-stroke: 0; --mx: 50%; --my: 40%; --r: 190px;
-  -webkit-mask-image: radial-gradient(circle var(--r) at var(--mx) var(--my), #000 0%, rgba(0,0,0,.55) 45%, transparent 100%);
-          mask-image: radial-gradient(circle var(--r) at var(--mx) var(--my), #000 0%, rgba(0,0,0,.55) 45%, transparent 100%); }
-.portrait { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); width: min(560px, 46vw); aspect-ratio: 1086 / 1448; max-width: 100%; z-index: 1; pointer-events: none; }
-/* portrait-cut.png already carries the silhouette and a feathered edge in its alpha channel */
-.portrait img { width: 100%; height: 100%; object-fit: cover; display: block; position: relative; filter: contrast(1.05); }
-/* the same cut-out, filled with the accent colour and offset, sits behind the photo and drifts with the cursor */
-.portrait .sil { position: absolute; inset: 0; background: var(--red-fill); opacity: .8; transform: translate3d(var(--sx, 0px), var(--sy, 0px), 0) scale(1.045); transform-origin: 50% 60%; filter: blur(12px);
-  -webkit-mask: url(assets/portrait-cut.png) center / 100% 100% no-repeat; mask: url(assets/portrait-cut.png) center / 100% 100% no-repeat; }
-.hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr minmax(0, 520px) 1fr; gap: 24px; align-items: end; padding-bottom: clamp(40px, 6vw, 72px); }
-.hero-left { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
-.hero-left h1 { font-size: clamp(26px, 2.7vw, 40px); line-height: 1.12; }
-.hero-left h1 em { font-style: normal; color: var(--red); }
-.hero-left .lead { color: var(--muted); max-width: 34ch; }
-.hero-cta { display: flex; flex-wrap: wrap; gap: 18px; }
-.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 24px; justify-self: end; min-width: 0; }
-.stat b { display: block; font: 700 clamp(30px, 3.2vw, 46px)/1 var(--display); }
-.stat b i { font-style: normal; color: var(--red); }
-.stat span { display: block; margin-top: 8px; font-size: 14px; color: var(--muted); max-width: 18ch; line-height: 1.35; }
-.ticker { position: relative; z-index: 3; background: var(--red-fill); overflow: hidden; padding-block: 16px; }
-.ticker-track { display: flex; width: max-content; will-change: transform; }
-.ticker-track.css { animation: tick 38s linear infinite; }
-.ticker-track span { font: 700 clamp(16px, 1.6vw, 22px)/1 var(--display); text-transform: uppercase; letter-spacing: .04em; padding-right: 40px; display: inline-flex; gap: 40px; white-space: nowrap; }
-.ticker-track span::after { content: "✦"; }
+.hero { padding-top: calc(104px + env(safe-area-inset-top, 0px)); }
+.namebar { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+.name { overflow: hidden; padding-bottom: .04em; }
+.name h1 { font: 900 clamp(64px, 12.4vw, 184px)/.86 Geologica, sans-serif; letter-spacing: -.045em; }
+.name h1 i { color: var(--red); font-style: normal; }
+.name > * { display: block; animation: rise 1.1s var(--ease) both .1s; }
+@keyframes rise { from { transform: translateY(105%); } }
+.meta { text-align: right; font-size: 12px; color: var(--mut); line-height: 1.9; white-space: nowrap; }
+.meta b { color: var(--fg); font-weight: 600; }
+.live { color: var(--red); }
+.live i { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--red); margin-right: 6px; vertical-align: 1px; animation: blink 1.6s steps(1) infinite; }
+@keyframes blink { 50% { opacity: .2; } }
 
-@keyframes tick { to { transform: translateX(-50%); } }
+.main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 470px); gap: clamp(32px, 4vw, 56px); margin-top: 40px; align-items: start; }
+.lab { font-size: 12px; color: var(--mut); }
+.lab b { color: var(--red); font-weight: 600; margin-right: 10px; }
+.lead { margin-top: 18px; font: 800 clamp(32px, 3.7vw, 54px)/1.06 Geologica, sans-serif; letter-spacing: -.02em; max-width: 760px; }
+.sub { margin-top: 18px; max-width: 580px; font-size: 18px; line-height: 1.55; color: var(--mut); }
+.ctas { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+.stats { margin-top: 36px; display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); max-width: 760px; }
+.stats div { padding: 16px 18px; border-right: 1px solid var(--line); min-width: 0; }
+.stats div:last-child { border-right: 0; }
+.stats b { display: block; font: 800 26px Geologica, sans-serif; }
+.stats b i { color: var(--red); font-style: normal; }
+.stats small { color: var(--mut); font-size: 12.5px; line-height: 1.35; display: block; }
+
+.viewer { position: relative; aspect-ratio: 1 / 1; margin-top: -132px; border-radius: 16px; overflow: hidden; background: radial-gradient(120% 90% at 50% 30%, #2a2a2e, #0b0b0c); box-shadow: var(--shadow); isolation: isolate; }
+:root[data-theme="dark"] .viewer { box-shadow: 0 0 0 1px #34343a, var(--shadow); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .viewer { box-shadow: 0 0 0 1px #34343a, var(--shadow); } }
+.viewer .photo { position: absolute; inset: 30px 30px 0; background: url(assets/portrait-cut.png) center 10% / cover no-repeat; transition: transform .2s linear; }
+.viewer .grid3 { position: absolute; inset: 0; pointer-events: none; background:
+  linear-gradient(90deg, transparent calc(33.33% - .5px), rgba(239,236,230,.09) calc(33.33% - .5px), rgba(239,236,230,.09) calc(33.33% + .5px), transparent calc(33.33% + .5px), transparent calc(66.66% - .5px), rgba(239,236,230,.09) calc(66.66% - .5px), rgba(239,236,230,.09) calc(66.66% + .5px), transparent calc(66.66% + .5px)),
+  linear-gradient(transparent calc(33.33% - .5px), rgba(239,236,230,.09) calc(33.33% - .5px), rgba(239,236,230,.09) calc(33.33% + .5px), transparent calc(33.33% + .5px), transparent calc(66.66% - .5px), rgba(239,236,230,.09) calc(66.66% - .5px), rgba(239,236,230,.09) calc(66.66% + .5px), transparent calc(66.66% + .5px)); opacity: 0; transition: opacity .5s; }
+.viewer:hover .grid3 { opacity: 1; }
+.viewer .tc { position: absolute; left: 18px; right: 18px; top: 16px; display: flex; justify-content: space-between; color: #EFECE6; font-size: 11.5px; }
+.viewer .tc b { color: #ff3b4e; font-weight: 400; animation: blink 1.2s steps(1) infinite; }
+.viewer .cap { position: absolute; left: 18px; right: 18px; bottom: 16px; display: flex; justify-content: space-between; color: #EFECE6; font-size: 11.5px; }
+.viewer .cap span:last-child { opacity: .6; }
+.corner { position: absolute; width: 22px; height: 22px; border: 2px solid rgba(239,236,230,.8); transition: inset .6s var(--ease), width .6s var(--ease), height .6s var(--ease); }
+.c1 { left: 18px; top: 44px; border-right: 0; border-bottom: 0; }
+.c2 { right: 18px; top: 44px; border-left: 0; border-bottom: 0; }
+.c3 { left: 18px; bottom: 42px; border-right: 0; border-top: 0; }
+.c4 { right: 18px; bottom: 42px; border-left: 0; border-top: 0; }
+.viewer:hover .c1 { left: 28%; top: 16%; } .viewer:hover .c2 { right: 28%; top: 16%; }
+.viewer:hover .c3 { left: 28%; bottom: 48%; } .viewer:hover .c4 { right: 28%; bottom: 48%; }
+.viewer:hover .corner { border-color: #ff3b4e; }
+
+@media (max-width: 1100px) { .viewer { margin-top: 0; } }
 @media (max-width: 860px) {
-  .hero { min-height: auto; padding-top: 80px; }
-  .bigword { position: relative; top: 0; margin-top: 24px; font-size: 13.4vw; }
-  .portrait { position: relative; left: auto; transform: none; width: min(420px, 86vw); margin: -6vw auto 0; }
-  .hero-grid { grid-template-columns: 1fr; margin-top: -40px; }
-  .stats { justify-self: start; width: 100%; }
+  .main { grid-template-columns: 1fr; }
+  .viewer { order: -1; aspect-ratio: 4 / 5; max-height: 72vh; width: 100%; }
+  .meta { display: none; }
+}
+@media (max-width: 560px) {
+  .stats { grid-template-columns: 1fr 1fr; }
+  .stats div:nth-child(2) { border-right: 0; }
+  .stats div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .ctas .pill { flex: 1 1 100%; }
+  .sub { font-size: 16.5px; }
 }
 
 /* ---------- services ---------- */
-.svc-list { border-top: 1px solid var(--line); }
-.svc { position: relative; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto; gap: 24px; align-items: center; padding: 30px 8px; border-bottom: 1px solid var(--line); overflow: hidden; isolation: isolate; }
-.svc::before { content: ""; position: absolute; inset: 0; background: var(--red-fill); transform: scaleY(0); transform-origin: bottom; transition: transform .3s cubic-bezier(.2,.7,.2,1); z-index: -1; }
-.svc h3 { font-size: clamp(22px, 3vw, 40px); transition: transform .35s cubic-bezier(.2,.7,.2,1); }
-.svc p { color: var(--muted); font-size: 16px; transition: color .3s; }
-.svc .tools { display: flex; gap: 6px; flex-wrap: wrap; justify-content: end; }
-.svc .tools span { font-size: 12px; border: 1px solid var(--line); border-radius: 99px; padding: 6px 11px; color: var(--muted); transition: color .3s, border-color .3s; white-space: nowrap; }
-@media (hover: hover) {
-  .svc:hover::before { transform: scaleY(1); }
-  .svc:hover h3 { transform: translateX(14px); }
-  .svc:hover p, .svc:hover .tools span { color: var(--fg); border-color: rgba(242,241,236,.45); }
+.svc-list { border-bottom: 1px solid var(--line); }
+.svc { display: grid; grid-template-columns: 64px minmax(0, 1.1fr) minmax(0, 1.4fr) minmax(0, 1fr) 32px; gap: 24px; align-items: center; padding: 26px 12px; border-top: 1px solid var(--line); position: relative; transition: background-color .35s, padding .45s var(--ease); }
+.svc:first-child { border-top: 0; }
+.svc:hover, .svc.open { background: var(--cell); }
+.svc .n { font-size: 12.5px; color: var(--red); }
+.svc h3 { font-weight: 700; font-size: clamp(21px, 2vw, 28px); letter-spacing: -.015em; line-height: 1.15; }
+.svc p { color: var(--mut); font-size: 15px; }
+.svc .tools { display: flex; flex-wrap: wrap; gap: 6px; }
+.svc .tools span { font-size: 11.5px; padding: 5px 10px; border-radius: 99px; border: 1px solid var(--line); color: var(--mut); }
+.svc .arr { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--line); color: var(--mut); transition: transform .4s var(--ease), background-color .3s, color .3s, border-color .3s; }
+.svc:hover .arr { transform: rotate(-45deg); background: var(--red); color: var(--on-red); border-color: var(--red); }
+@media (max-width: 960px) {
+  .svc { grid-template-columns: 40px minmax(0, 1fr) 32px; gap: 8px 14px; padding: 22px 4px; }
+  .svc p, .svc .tools { grid-column: 2 / 3; }
+  .svc .arr { grid-row: 1; grid-column: 3; }
 }
-@media (max-width: 760px) { .svc { grid-template-columns: 1fr; gap: 10px; padding: 24px 0; } .svc .tools { justify-content: start; } }
-.preview { position: fixed; left: 0; top: 0; z-index: 40; width: 300px; pointer-events: none; opacity: 0; transform: translate3d(-999px,0,0) scale(.6); transition: opacity .25s; border-radius: 18px; overflow: hidden; background: var(--surface); box-shadow: 0 30px 80px rgba(0,0,0,.6); border: 1px solid var(--line); }
+.preview { position: fixed; left: 0; top: 0; z-index: 30; width: 300px; border-radius: 14px; overflow: hidden; background: #121214; box-shadow: 0 30px 60px -20px rgba(0,0,0,.55); pointer-events: none; opacity: 0; transition: opacity .3s; }
 .preview.on { opacity: 1; }
 .preview canvas { display: block; width: 300px; height: 200px; }
-.preview .cap { display: flex; justify-content: space-between; padding: 10px 14px; font: 600 11px/1 var(--display); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--line); }
-.preview .cap b { color: var(--red); font-weight: 600; }
+.preview .cap { display: flex; justify-content: space-between; padding: 10px 14px; font: 600 11px 'JetBrains Mono', monospace; color: #9A978F; border-top: 1px solid #222226; }
+.preview .cap b { color: #ff3b4e; font-weight: 600; }
+.preview.inline { position: relative; width: 100%; max-width: 420px; transform: none !important; grid-column: 1 / -1; margin-top: 8px; }
+.preview.inline canvas { width: 100%; height: auto; aspect-ratio: 3 / 2; }
 
-/* ---------- about + skills pit ---------- */
-.about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 90px); align-items: start; }
-.about-text { display: flex; flex-direction: column; gap: 22px; }
-.about-text h2 { font-size: clamp(30px, 4vw, 54px); }
-.about-text p { color: var(--muted); max-width: 52ch; }
-.about-text p strong { color: var(--fg); font-weight: 600; }
-.facts { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; margin-top: 10px; }
-.facts div { border-top: 1px solid var(--line); padding: 16px 0; }
-.facts b { display: block; font: 700 15px/1.3 var(--display); }
-.facts span { font-size: 14px; color: var(--muted); }
-.pit { position: relative; height: 440px; border: 1px solid var(--line); border-radius: 28px; overflow: hidden; background: radial-gradient(120% 80% at 50% 110%, rgba(225,29,53,.16), transparent 60%), var(--surface); touch-action: pan-y; }
-.pit-inner { display: flex; flex-wrap: wrap; gap: 10px; padding: 28px; align-content: flex-start; }
-.pit .hint { position: absolute; left: 24px; bottom: 20px; font: 600 11px/1 var(--display); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); pointer-events: none; }
-.tag { font: 700 clamp(14px, 1.4vw, 19px)/1 var(--display); padding: 15px 22px; border-radius: 99px; background: var(--bg); border: 1px solid var(--line); white-space: nowrap; user-select: none; cursor: grab; will-change: transform; }
-.tag.r { background: var(--red-fill); border-color: var(--red-fill); }
-.tag.l { background: var(--fg); color: var(--bg); border-color: var(--fg); }
-.pit.live .tag { position: absolute; left: 0; top: 0; }
-.pit.live .tag:active { cursor: grabbing; }
-@media (max-width: 860px) { .about { grid-template-columns: 1fr; } .pit { height: 380px; } }
+/* ---------- works ---------- */
+.works { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 20px; margin-top: 28px; }
+.card { border: 1px solid var(--line); border-radius: 16px; background: var(--cell); overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+.card .txt { padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 10px; }
+.card .k { font-size: 12px; color: var(--mut); }
+.card .k b { color: var(--red); font-weight: 600; margin-right: 8px; }
+.card h3 { font-weight: 700; font-size: 24px; letter-spacing: -.015em; line-height: 1.15; }
+.card p { color: var(--mut); font-size: 15px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.chips span { font-size: 11.5px; padding: 5px 10px; border-radius: 99px; border: 1px solid var(--line); color: var(--mut); }
+.w-noble { grid-column: span 12; display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); }
+.w-noble .txt { justify-content: flex-end; padding: 32px; gap: 14px; }
+.w-noble h3 { font-size: clamp(26px, 2.6vw, 36px); }
+.stage { position: relative; background: var(--cell2); padding: 40px 0 0 40px; min-height: 300px; overflow: hidden; }
+.browser { border-radius: 10px 0 0 0; overflow: hidden; background: #0d0d0f; box-shadow: 0 30px 60px -30px rgba(0,0,0,.5); }
+.browser .bar { height: 30px; display: flex; align-items: center; gap: 6px; padding: 0 12px; background: #1b1b1f; }
+.browser .bar i { width: 9px; height: 9px; border-radius: 50%; background: #3a3a40; }
+.browser .bar span { margin-left: 14px; flex: 1; max-width: 300px; height: 18px; border-radius: 6px; background: #26262b; font: 10.5px/18px 'JetBrains Mono', monospace; color: #8a8a90; padding: 0 10px; overflow: hidden; white-space: nowrap; }
+.shots { position: relative; aspect-ratio: 16 / 10; }
+.shots img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: opacity 1s var(--ease); }
+.shots img + img { opacity: 0; }
+.shots.alt img + img { opacity: 1; }
+.phone { position: absolute; right: 6%; bottom: -18%; width: 22%; min-width: 110px; border-radius: 22px; padding: 7px; background: #0d0d0f; box-shadow: 0 30px 50px -20px rgba(0,0,0,.6); transition: transform .8s var(--ease); }
+.phone img { border-radius: 16px; aspect-ratio: 430 / 820; object-fit: cover; object-position: top; width: 100%; }
+.w-noble:hover .phone { transform: translateY(-6%); }
+.w-video { grid-column: span 12; display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); }
+.w-video .vid { padding-bottom: 20px; border-right: 1px solid var(--line); }
+.w-video .txt { justify-content: flex-end; padding: 32px; gap: 14px; }
+.w-video h3 { font-size: clamp(26px, 2.6vw, 36px); }
+.w-side { grid-column: span 5; display: grid; gap: 20px; grid-template-rows: auto 1fr; }
+.deck { aspect-ratio: 16 / 9; overflow: hidden; background: #050505; }
+.deck img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.w-deck:hover .deck img { transform: scale(1.04); }
+.w-this .txt { height: 100%; justify-content: space-between; }
+.w-this .swatch { display: flex; gap: 8px; margin-top: 10px; }
+.w-this .swatch i { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); }
+@media (max-width: 960px) {
+  .w-noble { grid-template-columns: 1fr; }
+  .w-video { grid-template-columns: 1fr; }
+  .w-video .vid { border-right: 0; }
+  .w-video .txt { padding: 22px 24px 24px; }
+  .stage { padding: 24px 0 0 24px; }
+}
 
-/* ---------- process ---------- */
-.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; counter-reset: s; }
-.step { position: relative; padding: 30px 26px 34px; border: 1px solid var(--line); border-radius: 24px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; overflow: hidden; transition: border-color .3s, transform .4s; }
-.step::before { counter-increment: s; content: "0" counter(s); font: 800 88px/1 var(--display); color: transparent; -webkit-text-stroke: 1.5px var(--ghost); transition: -webkit-text-stroke-color .3s, color .3s; }
-.step h3 { font-size: 22px; margin-bottom: 10px; }
-.step p { color: var(--muted); font-size: 15px; }
-.step:hover { border-color: var(--red); }
-.step { transform-style: preserve-3d; will-change: transform; }
-.step::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .3s;
-  background: radial-gradient(320px circle at var(--gx, 50%) var(--gy, 50%), rgba(255,59,78,.16), transparent 60%); }
-.step:hover::after { opacity: 1; }
-.step:hover::before { color: var(--red); -webkit-text-stroke-color: var(--red); }
-@media (max-width: 960px) { .steps { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .steps { grid-template-columns: 1fr; } .step { min-height: 0; } }
-
-/* ---------- timeline ---------- */
-.tl { position: relative; border-top: 1px solid var(--line); }
-.tl-ghost { position: absolute; right: 0; top: 0; font: 800 clamp(80px, 16vw, 230px)/1 var(--display); color: transparent; -webkit-text-stroke: 1.5px var(--red); opacity: 0; pointer-events: none; transition: opacity .3s, transform .5s cubic-bezier(.2,.8,.2,1); z-index: 0; }
-.tl.hovering .tl-ghost { opacity: .5; }
-.job { position: relative; z-index: 1; display: grid; grid-template-columns: 180px minmax(0, 1fr) minmax(0, 1fr); gap: 24px; padding: 30px 0; border-bottom: 1px solid var(--line); transition: padding .35s; }
-.job .yr { font: 600 15px/1.4 var(--display); color: var(--muted); }
-.job h3 { font-size: clamp(20px, 2.2vw, 28px); }
-.job .org { color: var(--red); font-size: 15px; margin-top: 8px; }
-.job ul { margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: 15px; display: flex; flex-direction: column; gap: 6px; }
-.job ul li::before { content: "→ "; color: var(--red); }
-.job > * { transition: transform .5s cubic-bezier(.2,.8,.2,1), color .3s; }
-.job:hover > * { transform: translateX(14px); }
-.job:hover .yr { color: var(--fg); }
-@media (max-width: 860px) { .job { grid-template-columns: 1fr; gap: 12px; } }
-
-/* ---------- before / after ---------- */
-.ba-wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: clamp(32px, 6vw, 80px); align-items: center; }
-.ba-wrap h2 { font-size: clamp(30px, 4vw, 54px); margin: 18px 0; }
-.ba-wrap p { color: var(--muted); max-width: 44ch; }
-.ba { position: relative; aspect-ratio: 1920 / 919; max-width: 100%; border-radius: 24px; overflow: hidden; border: 1px solid var(--line); --pos: 50%; user-select: none; background: #000; }
-/* frames keep the film's letterbox; shift and scale so only the picture area shows */
-.ba img { position: absolute; left: 0; top: -17.08%; width: 100%; height: 134.28%; }
+/* before / after */
+.ba { position: relative; aspect-ratio: 1920 / 919; overflow: hidden; --pos: 50%; background: #000; touch-action: pan-y; }
+.ba img { position: absolute; left: 0; width: 100%; top: -17.08%; height: 134.28%; object-fit: cover; user-select: none; -webkit-user-drag: none; }
 .ba .before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
-.ba .bar { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; background: var(--fg); transform: translateX(-1px); pointer-events: none; }
-.ba .bar::after { content: "⟷"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 52px; height: 52px; border-radius: 50%; background: var(--fg); color: var(--bg); display: grid; place-items: center; font-size: 20px; }
-.ba .lbl { position: absolute; top: 16px; font: 700 11px/1 var(--display); letter-spacing: .14em; padding: 8px 12px; border-radius: 99px; background: rgba(5,5,5,.7); }
-.ba .lbl.l { left: 16px; } .ba .lbl.r { right: 16px; background: var(--red-fill); }
-.ba input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
-.ba { transition: aspect-ratio .5s cubic-bezier(.7,0,.2,1); }
-.ba video { position: absolute; inset: 0; width: 100%; height: 100%; background: #000; z-index: 3; }
+.ba .bar { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; margin-left: -1px; background: #fff; pointer-events: none; }
+.ba .bar::after { content: ''; position: absolute; top: 50%; left: 50%; width: 38px; height: 38px; margin: -19px 0 0 -19px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 6px rgba(225,29,53,.25); }
+.ba .lbl { position: absolute; top: 14px; font: 600 11px 'JetBrains Mono', monospace; color: #fff; padding: 5px 10px; border-radius: 99px; background: rgba(0,0,0,.45); pointer-events: none; }
+.ba .lbl.l { left: 14px; } .ba .lbl.r { right: 14px; background: var(--red); }
+.ba input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; margin: 0; cursor: ew-resize; }
+.ba video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #000; }
 .ba.playing { aspect-ratio: 1920 / 1234; }
-.ba.playing .bar, .ba.playing .lbl, .ba.playing input { display: none; }
-.ba-col { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
-.ba-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-.ba-meta { font: 600 12px/1 var(--display); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
-.play { display: inline-flex; align-items: center; gap: 14px; background: none; border: 0; padding: 0; color: var(--fg); font: 700 16px/1 var(--display); cursor: pointer; }
-.play-ico { position: relative; width: 58px; height: 58px; border-radius: 50%; background: var(--red-fill); display: grid; place-items: center; transition: transform .3s; }
-.play-ico::before { content: ""; border-style: solid; border-width: 9px 0 9px 15px; border-color: transparent transparent transparent var(--fg); margin-left: 4px; }
-.play-ico::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 1px solid var(--red); animation: pulse 2.2s ease-out infinite; }
-.play.on .play-ico::before { width: 16px; height: 18px; border: 0; border-left: 5px solid var(--fg); border-right: 5px solid var(--fg); margin: 0; }
-.play:hover .play-ico { transform: scale(1.08); }
-@keyframes pulse { from { transform: scale(.9); opacity: 1; } to { transform: scale(1.5); opacity: 0; } }
-.formats { list-style: none; margin: 26px 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.formats li { font-size: 14px; border: 1px solid var(--line); border-radius: 99px; padding: 8px 14px; transition: border-color .25s, color .25s; }
-.formats li:hover { border-color: var(--red); color: var(--red); }
-.ba-wrap .ba-note { font-size: 14px; }
-@media (max-width: 860px) { .ba-wrap { grid-template-columns: 1fr; } }
+.ba-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 24px 0; }
+.play { white-space: nowrap; flex: none; display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 14px; padding: 10px 18px 10px 12px; border-radius: 99px; background: var(--fg); color: var(--bg); }
+.play i { width: 22px; height: 22px; border-radius: 50%; background: var(--red); display: grid; place-items: center; }
+.play i::before { content: ''; border-left: 7px solid #fff; border-top: 4.5px solid transparent; border-bottom: 4.5px solid transparent; margin-left: 2px; }
+.play.on i::before { border: 0; width: 7px; height: 8px; margin: 0; background: linear-gradient(90deg, #fff 2.5px, transparent 2.5px 4.5px, #fff 4.5px); }
+.ba-bar small { font-size: 11.5px; color: var(--mut); }
+
+/* ---------- how to order ---------- */
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); border-top: 0; }
+.step { padding: 28px 26px 30px; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 12px; }
+.step:last-child { border-right: 0; }
+.step .n { font-size: 12.5px; color: var(--red); }
+.step h3 { font-size: 22px; font-weight: 700; letter-spacing: -.01em; }
+.step p { color: var(--mut); font-size: 15px; }
+.terms { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line); border-top: 0; background: var(--cell); }
+.terms div { padding: 18px 22px; border-right: 1px solid var(--line); min-width: 0; }
+.terms div:last-child { border-right: 0; }
+.terms small { display: block; font-size: 11.5px; color: var(--mut); }
+.terms b { font: 700 16px Geologica, sans-serif; }
+@media (max-width: 860px) {
+  .steps { grid-template-columns: 1fr; }
+  .step { border-right: 0; border-bottom: 1px solid var(--line); }
+  .step:last-child { border-bottom: 0; }
+  .terms { grid-template-columns: 1fr 1fr; }
+  .terms div:nth-child(2) { border-right: 0; }
+  .terms div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+}
+
+/* ---------- about ---------- */
+.about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: clamp(32px, 5vw, 80px); margin-top: 32px; }
+.about .bio p { font-size: 18px; line-height: 1.6; max-width: 560px; }
+.about .bio p + p { margin-top: 16px; color: var(--mut); font-size: 16px; }
+.about .bio strong { font-weight: 700; }
+.jobs li { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 4px 20px; padding: 18px 0; border-top: 1px solid var(--line); }
+.jobs li:last-child { border-bottom: 1px solid var(--line); }
+.jobs .yr { font-size: 12.5px; color: var(--mut); padding-top: 4px; }
+.jobs h3 { font-size: 18px; font-weight: 700; }
+.jobs h3 span { color: var(--mut); font-weight: 500; font-family: Manrope, sans-serif; font-size: 15px; }
+.jobs p { grid-column: 2; color: var(--mut); font-size: 14.5px; }
+@media (max-width: 860px) { .about { grid-template-columns: 1fr; } .jobs li { grid-template-columns: 1fr; } .jobs p { grid-column: 1; } }
+
+/* ---------- faq ---------- */
+.faq { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: clamp(24px, 5vw, 80px); }
+.faq h2 { font-weight: 800; font-size: clamp(28px, 3vw, 40px); letter-spacing: -.02em; line-height: 1.05; }
+.faq h2 + p { margin-top: 12px; color: var(--mut); font-size: 15px; max-width: 320px; }
+.faq details { border-top: 1px solid var(--line); }
+.faq details:last-child { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; display: flex; justify-content: space-between; gap: 16px; padding: 20px 0; font-weight: 700; font-size: 17px; cursor: pointer; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary i { flex: none; width: 22px; height: 22px; position: relative; margin-top: 2px; }
+.faq summary i::before, .faq summary i::after { content: ''; position: absolute; left: 4px; right: 4px; top: 10px; height: 1.5px; background: var(--red); transition: transform .4s var(--ease); }
+.faq summary i::after { transform: rotate(90deg); }
+.faq details[open] summary i::after { transform: rotate(0); }
+.faq details p { padding: 0 40px 22px 0; color: var(--mut); font-size: 15.5px; max-width: 680px; }
+.faq details p a { color: var(--fg); border-bottom: 1px solid var(--red); }
+@media (max-width: 860px) { .faq { grid-template-columns: 1fr; } }
 
 /* ---------- contact ---------- */
-.contact { padding-block: clamp(90px, 13vw, 170px) 40px; overflow: hidden; }
-.contact h2 { font-size: clamp(40px, 8.4vw, 128px); line-height: .98; letter-spacing: -.02em; }
-.contact h2 em { font-style: normal; }
-.flash { position: relative; }
-.contact .flash { margin-top: 22px; }
-.contact .flash-base em { color: transparent; -webkit-text-stroke: 1.5px var(--fg); }
-.flash-lit { position: absolute; inset: 0; color: var(--red); pointer-events: none; --mx: 30%; --my: 50%; --r: 220px;
-  -webkit-mask-image: radial-gradient(circle var(--r) at var(--mx) var(--my), #000 0%, rgba(0,0,0,.55) 45%, transparent 100%);
-          mask-image: radial-gradient(circle var(--r) at var(--mx) var(--my), #000 0%, rgba(0,0,0,.55) 45%, transparent 100%); }
-.mail { display: inline-flex; flex-wrap: wrap; margin-top: clamp(36px, 5vw, 60px); font: 700 clamp(18px, 3.9vw, 54px)/1.1 var(--display); color: var(--red); cursor: pointer; background: none; border: 0; padding: 0; text-align: left; }
-.mail span { display: inline-block; transition: transform .25s cubic-bezier(.2,.8,.2,1); will-change: transform; }
-.contact-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; margin-top: 42px; padding-top: 30px; border-top: 1px solid var(--line); }
-.contact-row .phone { font: 600 clamp(18px, 2vw, 24px)/1 var(--display); }
-.contact-row .btns { display: flex; flex-wrap: wrap; gap: 10px; }
-.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 80px; font-size: 13px; color: var(--muted); }
-.toast { position: fixed; left: 50%; bottom: calc(28px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 20px); background: var(--fg); color: var(--bg); font: 700 13px/1 var(--display); padding: 14px 20px; border-radius: 99px; opacity: 0; transition: .3s; z-index: 70; pointer-events: none; }
-.toast.on { opacity: 1; transform: translate(-50%, 0); }
-
-/* ---------- cursor ---------- */
-.cur, .ring { position: fixed; left: 0; top: 0; z-index: 80; pointer-events: none; border-radius: 50%; display: none; }
-.has-cursor .cur, .has-cursor .ring { display: block; }
-.has-cursor, .has-cursor a, .has-cursor button, .has-cursor .tag, .has-cursor input { cursor: none !important; }
-.cur { width: 8px; height: 8px; margin: -4px 0 0 -4px; background: var(--red); }
-.ring { width: 40px; height: 40px; margin: -20px 0 0 -20px; border: 1px solid rgba(242,241,236,.5); display: none; align-items: center; justify-content: center; transition: width .3s, height .3s, margin .3s, background .3s, border-color .3s; }
-.has-cursor .ring { display: flex; }
-.ring b { font: 700 10px/1.1 var(--display); letter-spacing: .1em; text-transform: uppercase; color: var(--bg); opacity: 0; transition: opacity .2s; text-align: center; padding: 0 6px; }
-.ring.hover { width: 64px; height: 64px; margin: -32px 0 0 -32px; border-color: var(--red); }
-.ring.label { width: 96px; height: 96px; margin: -48px 0 0 -48px; background: var(--fg); border-color: var(--fg); }
-.ring.label b { opacity: 1; }
-.ring.hide { opacity: 0; }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .ticker-track { animation: none !important; }
-  .grain { animation: none; }
-  .rv-on .rv, .rv-on .rv-soft { opacity: 1 !important; transform: none !important; clip-path: none !important; }
-  *, *::before { transition-duration: .01ms !important; }
+.contact .big { font: 900 clamp(48px, 9vw, 140px)/.9 Geologica, sans-serif; letter-spacing: -.045em; margin-top: 18px; }
+.contact .big i { color: var(--red); font-style: normal; }
+.contact .row { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px; align-items: end; margin-top: 32px; }
+.contact .row p { font-size: 18px; color: var(--mut); max-width: 520px; }
+.contact .tgbig { justify-self: end; padding: 24px 36px; font-size: 18px; }
+.contact .tgbig svg { width: 22px; height: 22px; }
+.cgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line); margin-top: 48px; }
+.cgrid > * { padding: 20px 22px; border-right: 1px solid var(--line); text-align: left; min-width: 0; display: flex; flex-direction: column; gap: 4px; transition: background-color .3s; }
+.cgrid > *:last-child { border-right: 0; }
+.cgrid > *:hover { background: var(--cell); }
+.cgrid small { font-size: 11.5px; color: var(--mut); }
+.cgrid b { font-weight: 700; font-size: 16px; overflow-wrap: anywhere; }
+.cgrid .cv { flex-direction: row; gap: 10px; align-items: center; flex-wrap: wrap; }
+.cgrid .cv small { width: 100%; }
+.cgrid .cv a { font-weight: 700; border-bottom: 1px solid var(--red); }
+@media (max-width: 860px) {
+  .contact .row { grid-template-columns: 1fr; }
+  .contact .tgbig { justify-self: stretch; }
+  .cgrid { grid-template-columns: 1fr 1fr; }
+  .cgrid > *:nth-child(2) { border-right: 0; }
+  .cgrid > *:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
 }
+@media (max-width: 480px) { .cgrid { grid-template-columns: 1fr; } .cgrid > * { border-right: 0 !important; border-bottom: 1px solid var(--line); } .cgrid > *:last-child { border-bottom: 0; } }
 </style>
-
-<div class="pre" id="pre" aria-hidden="true">
-  <div class="pre-red"></div>
-  <div class="pre-dark">
-    <div class="pre-top"><span id="pre-name">Артур Габараев</span><span id="pre-role">Portfolio — 2026</span></div>
-    <div class="pre-num"><span id="pre-n">0</span><i>%</i></div>
-    <div class="pre-line"></div>
-  </div>
-</div>
-<div class="grain" aria-hidden="true"></div>
-<div class="progress" aria-hidden="true"></div>
-<div class="cur" aria-hidden="true"></div>
-<div class="ring" aria-hidden="true"><b></b></div>
 
 <header class="nav">
   <div class="wrap">
-    <a href="#top" class="logo" data-scramble>AG<span>.</span></a>
-    <nav class="nav-links" aria-label="Разделы / Sections">
-      <a href="#services" data-scramble data-en="Services">Услуги</a>
-      <a href="#about" data-scramble data-en="About">Обо мне</a>
-      <a href="#process" data-scramble data-en="Process">Процесс</a>
-      <a href="#experience" data-scramble data-en="Experience">Опыт</a>
-      <a href="#contact" data-scramble data-en="Contact">Контакты</a>
+    <a class="logo" href="#top" aria-label="Наверх" data-en-label="Back to top">AG<i>.</i></a>
+    <nav class="links mono" aria-label="Разделы" data-en-label="Sections">
+      <a href="#services"><b>01</b><span data-scramble data-en="Services">Услуги</span></a>
+      <a href="#works"><b>02</b><span data-scramble data-en="Work">Работы</span></a>
+      <a href="price.html" data-page="price.html"><b>03</b><span data-scramble data-en="Prices">Цены</span></a>
+      <a href="#contact"><b>04</b><span data-scramble data-en="Contact">Контакты</span></a>
     </nav>
-    <div class="nav-right">
-      <div class="lang" role="group" aria-label="Язык / Language">
-        <button type="button" id="lang-ru" aria-pressed="true">RU</button>
-        <button type="button" id="lang-en" aria-pressed="false">EN</button>
-      </div>
-      <a class="btn small red magnetic" href="#contact" data-en="Contact me">Написать</a>
-      <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="mmenu" aria-label="Меню / Menu"><span></span><span></span></button>
+    <span class="sp"></span>
+    <div class="theme" role="group" aria-label="Тема" data-en-label="Theme">
+      <button type="button" data-theme-set="light" aria-label="Светлая тема" data-en-label="Light theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></svg></button>
+      <button type="button" data-theme-set="dark" aria-label="Тёмная тема" data-en-label="Dark theme"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1Z"/></svg></button>
     </div>
+    <div class="lang mono"><button type="button" data-lang-set="ru">RU</button><span>/</span><button type="button" data-lang-set="en">EN</button></div>
+    <a class="pill tg magnetic" href="https://t.me/turelat" data-tg target="_blank" rel="noopener" data-mag=".5"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5ZM9.3 13.6l9.3-5.9c.4-.3.8-.1.5.2l-7.9 7.2-.3 3.4-1.6-4.9Z"/></svg>Telegram</a>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="mmenu" aria-label="Меню" data-en-label="Menu"><span></span><span></span></button>
   </div>
 </header>
 
 <div class="mmenu" id="mmenu" hidden>
-  <nav aria-label="Меню / Menu">
-    <a href="#services" style="--i:0" data-en="Services">Услуги</a>
-    <a href="#about" style="--i:1" data-en="About">Обо мне</a>
-    <a href="#process" style="--i:2" data-en="Process">Процесс</a>
-    <a href="#experience" style="--i:3" data-en="Experience">Опыт</a>
-    <a href="#video" style="--i:4" data-en="Video">Видео</a>
-    <a href="#contact" style="--i:5" data-en="Contact">Контакты</a>
-  </nav>
-  <div class="mmenu-foot"><a href="https://t.me/turelat" target="_blank" rel="noopener">Telegram @turelat</a><span>arturgabaraev191@gmail.com</span></div>
-</div>
-<div class="mbar" id="mbar">
-  <a class="btn red" href="#contact" data-en="Contact me">Написать</a>
-  <a class="btn" href="https://t.me/turelat" target="_blank" rel="noopener">Telegram</a>
+  <a class="big" href="#services"><b>01</b><span data-en="Services">Услуги</span></a>
+  <a class="big" href="#works"><b>02</b><span data-en="Work">Работы</span></a>
+  <a class="big" href="price.html" data-page="price.html"><b>03</b><span data-en="Prices">Цены</span></a>
+  <a class="big" href="#contact"><b>04</b><span data-en="Contact">Контакты</span></a>
+  <div class="row">
+    <a class="pill tg" href="https://t.me/turelat" data-tg target="_blank" rel="noopener">Telegram</a>
+    <div class="lang mono"><button type="button" data-lang-set="ru">RU</button><span>/</span><button type="button" data-lang-set="en">EN</button></div>
+  </div>
 </div>
 
 <main id="top">
-  <section class="hero" id="hero">
-    <div class="bigword" aria-hidden="true">
-      <div class="outline" data-en="GABARAEV">ГАБАРАЕВ</div>
-      <div class="lit" data-en="GABARAEV">ГАБАРАЕВ</div>
+  <section class="hero wrap">
+    <div class="namebar">
+      <div class="name"><h1 data-en="Gabaraev<i>.</i>">Габараев<i>.</i></h1></div>
+      <div class="meta mono"><span class="live"><i></i><span data-en="available for projects">свободен для проектов</span></span><br><b data-en="Artur Gabaraev">Артур Александрович</b><br><span data-en="Dubai · Moscow · online">Дубай · Москва · онлайн</span></div>
     </div>
-    <div class="portrait" id="portrait"><div class="sil" aria-hidden="true"></div><img src="assets/portrait-cut.png" alt="Портрет Артура Габараева" data-en-alt="Portrait of Artur Gabaraev"></div>
-    <div class="wrap hero-grid">
-      <div class="hero-left">
-        <p class="status"><span class="dot"></span><span data-en="Open to projects">Открыт к проектам</span><span aria-hidden="true">·</span><span><b id="clock">--:--</b> <span data-en="in Moscow">в Москве</span></span></p>
-        <p class="eyebrow" data-en="Artur Gabaraev">Габараев Артур Александрович</p>
-        <h1 data-en="Websites, code, video and visuals <em>in one style</em>">Сайты, код, видео и визуал <em>в одном стиле</em></h1>
-        <p class="lead" data-en="IT specialist and video editor. I build, automate and design so your brand looks whole everywhere.">IT-специалист и видеомонтажёр. Разрабатываю, автоматизирую и оформляю, чтобы бренд выглядел цельно везде.</p>
-        <div class="hero-cta">
-          <a class="btn red magnetic" href="#contact" data-en="Discuss a project">Обсудить проект</a>
-          <a class="btn magnetic" id="cv-link" href="assets/Gabaraev_Resume_RU.pdf" download target="_blank" rel="noopener" data-en="Resume (PDF)">Резюме (PDF)</a>
-        </div>
-      </div>
-      <div aria-hidden="true"></div>
-      <div class="stats">
-        <div class="stat"><b>5<i>+</i></b><span data-en="years of video editing">лет в видеомонтаже</span></div>
-        <div class="stat"><b>C1</b><span data-en="English, international team">английский, работаю с международной командой</span></div>
-        <div class="stat"><b>8</b><span data-en="services in one place">направлений услуг в одних руках</span></div>
-        <div class="stat"><b><i>UAE</i></b><span data-en="experience at a Dubai company">опыт в компании из Дубая</span></div>
-      </div>
-    </div>
-    <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
-  </section>
-
-  <section class="sec" id="services">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="flash" id="flash-svc">
-          <h2 class="flash-base" data-en="What I can do for you">Чем могу быть полезен</h2>
-        </div>
-        <p data-en="Hover a line to see the service in motion.">Наведите на строку, чтобы увидеть услугу в движении.</p>
-      </div>
-      <div class="svc-list" id="svc-list">
-        <article class="svc">
-          <h3 data-en="Web development">Веб-разработка</h3>
-          <p data-en="Landing pages, business-card sites and portfolios, from structure to launch.">Лендинги, сайты-визитки и портфолио: от структуры до запуска.</p>
-          <div class="tools"><span>HTML / CSS</span><span>JavaScript</span><span>Claude Code</span></div>
-        </article>
-        <article class="svc">
-          <h3 data-en="Programming">Программирование</h3>
-          <p data-en="Python scripts and AI-assisted automation of routine work.">Скрипты на Python и автоматизация рутины с помощью AI.</p>
-          <div class="tools"><span>Python</span><span>C++</span><span>Cursor</span></div>
-        </article>
-        <article class="svc">
-          <h3 data-en="3D in Blender">3D в Blender</h3>
-          <p data-en="Models, product renders and 3D visuals for social media.">Модели, предметные рендеры и 3D-визуал для соцсетей.</p>
-          <div class="tools"><span>Blender</span><span data-en="Render">Рендер</span></div>
-        </article>
-        <article class="svc">
-          <h3 data-en="Video &amp; Photoshop">Видео и Photoshop</h3>
-          <p data-en="Video in any format, from Reels to podcasts and ads.">Ролики любого формата: от Reels до подкастов и рекламы.</p>
-          <div class="tools"><span data-en="Editing">Монтаж</span><span data-en="Colour">Цвет</span><span>Photoshop</span></div>
-        </article>
-        <article class="svc">
-          <h3 data-en="Brand identity">Айдентика</h3>
-          <p data-en="Logo, colours, type and simple rules that make a brand recognisable.">Логотип, цвета, шрифты и правила, по которым бренд узнают.</p>
-          <div class="tools"><span data-en="Logo">Логотип</span><span data-en="Guidelines">Гайдлайн</span></div>
-        </article>
-        <article class="svc">
-          <h3 data-en="Presentations">Презентации</h3>
-          <p data-en="Decks in your brand style: structure, design, infographics.">В вашем фирменном стиле: структура, дизайн, инфографика.</p>
-          <div class="tools"><span data-en="Pitch decks">Питч-деки</span><span data-en="Reports">Отчёты</span></div>
-        </article>
-        <article class="svc">
-          <h3 data-en="Social media">Ведение соцсетей</h3>
-          <p data-en="Content plan, posts, Reels and profile design.">Контент-план, посты, Reels и оформление профиля.</p>
-          <div class="tools"><span data-en="Content">Контент</span><span>Reels</span><span data-en="Analytics">Аналитика</span></div>
-        </article>
-        <article class="svc">
-          <h3 data-en="Personal assistance">Личный помощник</h3>
-          <p data-en="Documents, correspondence, research and the tasks that eat your time.">Документы, переписка, поиск информации и задачи, которые отнимают ваше время.</p>
-          <div class="tools"><span data-en="Docs">Документы</span><span data-en="Planning">Планирование</span></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="about" style="padding-top:0">
-    <div class="wrap about">
-      <div class="about-text">
-        <p class="eyebrow" data-en="About">Обо мне</p>
-        <h2 data-en="Developer with a video editor's eye">Разработчик с глазом видеомонтажёра</h2>
-        <p data-en="I write and improve scripts, automate workflows with <strong>Claude Code and Cursor</strong> and build websites. I have also spent <strong>five years editing video</strong>, so I know how to make things look good on a deadline.">Пишу и дорабатываю скрипты, автоматизирую процессы с помощью <strong>Claude Code и Cursor</strong>, делаю сайты. Параллельно <strong>пять лет занимаюсь видеомонтажом</strong>, поэтому умею делать красиво и в срок.</p>
-        <p data-en="I speak <strong>English at C1</strong> and work with international clients. Fourth-year Software Engineering student at RTU MIREA.">Свободно говорю <strong>по-английски (C1)</strong> и работаю с иностранными заказчиками. Студент 4 курса «Программной инженерии» РТУ МИРЭА.</p>
-        <div class="facts">
-          <div><b data-en="Moscow">Москва</b><span data-en="remote worldwide">и удалённо по миру</span></div>
-          <div><b>RU · EN</b><span data-en="native · C1">родной · C1</span></div>
-          <div><b>RTU MIREA</b><span data-en="Software Engineering">Программная инженерия</span></div>
-          <div><b data-en="3 thanks letters">3 благодарности</b><span data-en="Samara City Duma, GTRK">Дума Самары, ГТРК и др.</span></div>
-        </div>
-      </div>
-      <div class="pit" id="pit" data-cursor="" data-cursor-en="">
-        <div class="pit-inner">
-          <span class="tag r">Python</span><span class="tag">Claude Code</span><span class="tag l">Blender</span><span class="tag">Photoshop</span>
-          <span class="tag">Cursor</span><span class="tag r">HTML / CSS</span><span class="tag">JavaScript</span><span class="tag l">C++</span>
-          <span class="tag">SMM</span><span class="tag">English C1</span><span class="tag r">AI</span><span class="tag">3D</span>
-          <span class="tag l">Google Workspace</span><span class="tag">MS Office</span><span class="tag">1C</span><span class="tag r">UI</span>
-        </div>
-        <p class="hint" data-en="Throw them around">Покидайте их</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="process" style="padding-top:0">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2 data-en="How we work">Как работаем</h2>
-        <p data-en="Four steps. You always know what is happening and when you get the result.">Четыре шага. Вы всегда знаете, что происходит и когда будет результат.</p>
-      </div>
-      <div class="steps">
-        <div class="step"><div><h3 data-en="Brief">Бриф</h3><p data-en="We talk through the goal, audience, deadline and budget.">Обсуждаем задачу, аудиторию, сроки и бюджет.</p></div></div>
-        <div class="step"><div><h3 data-en="Concept">Концепция</h3><p data-en="I show the direction: structure, style, references.">Показываю направление: структуру, стиль, референсы.</p></div></div>
-        <div class="step"><div><h3 data-en="Production">Работа</h3><p data-en="I build it and show progress along the way.">Делаю и показываю промежуточные результаты.</p></div></div>
-        <div class="step"><div><h3 data-en="Launch">Запуск</h3><p data-en="Final files, launch and support afterwards.">Финальные файлы, запуск и поддержка после.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="experience" style="padding-top:0">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2 data-en="Experience">Опыт</h2>
-        <p data-en="From video editing to a company in Dubai. Hover a line.">От видеомонтажа до компании в Дубае. Наведите на строку.</p>
-      </div>
-      <div class="tl" id="tl">
-        <div class="tl-ghost" id="tl-ghost" aria-hidden="true">2018</div>
-        <div class="job" data-year="2018">
-          <p class="yr">2018 — 2023</p>
-          <div><h3 data-en="Photo &amp; Video Editor">Фото- и видеоредактор</h3><p class="org" data-en="GTRK Samara, Dobro.rf and others">ГТРК «Самара», «Добро.рф» и др.</p></div>
-          <ul>
-            <li data-en="Video for GTRK Samara and public campaigns">Видео для ГТРК «Самара» и информационных кампаний</li>
-            <li data-en="Several clients at once, tight deadlines">Несколько заказчиков одновременно, сжатые сроки</li>
-          </ul>
-        </div>
-        <div class="job" data-year="2023">
-          <p class="yr">2023 — 2024</p>
-          <div><h3 data-en="Specialist">Специалист</h3><p class="org" data-en="All-Russian Research Institute of Labour">ВНИИ труда, Москва</p></div>
-          <ul>
-            <li data-en="Presentations and reports">Презентации и отчётные материалы</li>
-            <li data-en="Layouts, banners and media materials">Макеты, баннеры и медиаматериалы</li>
-          </ul>
-        </div>
-        <div class="job" data-year="2023">
-          <p class="yr" data-en="2023 — now">2023 — сейчас</p>
-          <div><h3 data-en="Software Engineering">Программная инженерия</h3><p class="org" data-en="RTU MIREA, Bachelor's, 4th year">РТУ МИРЭА, бакалавриат, 4 курс</p></div>
-          <ul><li data-en="Education">Образование</li></ul>
-        </div>
-        <div class="job" data-year="2024">
-          <p class="yr" data-en="2024 — now">2024 — сейчас</p>
-          <div><h3 data-en="Executive Assistant">Помощник руководителя</h3><p class="org" data-en="INVESOL, Dubai, UAE">INVESOL, Дубай, ОАЭ</p></div>
-          <ul>
-            <li data-en="Automated internal processes with AI tools">Автоматизировал процессы с помощью AI-инструментов</li>
-            <li data-en="Data analysis, documents, task tracking">Анализ данных, документы, контроль задач</li>
-            <li data-en="Worked with an international team in English">Работал с международной командой на английском</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="video" style="padding-top:0">
-    <div class="wrap ba-wrap">
+    <div class="main">
       <div>
-        <p class="eyebrow" data-en="Video editing">Видеомонтаж</p>
-        <h2 data-en="Video in any format">Ролики любого формата</h2>
-        <p data-en="Five years of editing for ads, social media, media outlets and public campaigns. From a 15-second Reel to a podcast or a documentary story, I take the footage and hand back a finished film.">Пять лет монтажа для рекламы, соцсетей, медиа и информационных кампаний. От 15-секундного Reels до подкаста и документальной истории: беру исходники и отдаю готовый фильм.</p>
-        <ul class="formats">
-          <li data-en="Reels &amp; Shorts">Reels и Shorts</li><li data-en="Ads">Реклама</li><li data-en="Stories &amp; news">Сюжеты и новости</li><li data-en="Podcasts">Подкасты</li>
-          <li data-en="Trailers">Трейлеры</li><li data-en="Sport">Спорт</li><li data-en="Logo animation">Анимация логотипа</li><li data-en="Colour &amp; VFX">Цвет и VFX</li>
-        </ul>
-        <p class="ba-note" data-en="Drag the slider to compare the source and the finished shot, or play the clip.">Потяните ползунок, чтобы сравнить исходник и готовый кадр, или включите ролик.</p>
+        <p class="lab mono rv" style="--d:1"><b data-en="[VIDEO · WEB · DESIGN]">[ВИДЕО · САЙТЫ · ДИЗАЙН]</b><span data-en="5+ years in the field">5+ лет в профессии</span></p>
+        <h2 class="lead rv" style="--d:2" data-en="Video, websites and visuals for business, in&nbsp;one&nbsp;style">Монтаж, сайты и визуал для&nbsp;бизнеса&nbsp;— в&nbsp;одном стиле</h2>
+        <p class="sub rv" style="--d:3" data-en="I take the whole job: videos, a website, a logo, 3D and social media. One contractor instead of five, in English or Russian.">Беру задачу целиком: ролики, сайт, логотип, 3D и соцсети. Один подрядчик вместо пяти — на русском или английском.</p>
+        <div class="ctas rv" style="--d:4">
+          <a class="pill p1 magnetic" href="https://t.me/turelat" data-tg target="_blank" rel="noopener" data-mag=".6"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5ZM9.3 13.6l9.3-5.9c.4-.3.8-.1.5.2l-7.9 7.2-.3 3.4-1.6-4.9Z"/></svg><span data-en="Message me on Telegram">Написать в Telegram</span></a>
+          <a class="pill p2 magnetic" href="#works" data-mag=".6" data-en="See the work">Смотреть работы</a>
+        </div>
+        <div class="stats rv" style="--d:5">
+          <div><b>5<i>+</i></b><small data-en="years in the field">лет в профессии</small></div>
+          <div><b>7</b><small data-en="services">направлений</small></div>
+          <div><b>C1</b><small data-en="English">английский</small></div>
+          <div><b data-en="24 h">24 ч</b><small data-en="reply to a request">ответ на заявку</small></div>
+        </div>
       </div>
-      <div class="ba-col">
-      <div class="ba" id="ba" data-cursor="Тяни" data-cursor-en="Drag">
-        <img class="after" src="assets/work_after.jpg" alt="Кадр после обработки: палатки в горах в снегу и тумане" data-en-alt="After: tents in the mountains with snow and fog">
-        <img class="before" src="assets/work_before.jpg" alt="Исходный кадр: палатки в горах" data-en-alt="Before: source shot of tents in the mountains">
-        <span class="lbl l" data-en="BEFORE">ДО</span><span class="lbl r" data-en="AFTER">ПОСЛЕ</span>
-        <div class="bar"></div>
-        <input type="range" id="ba-range" min="0" max="100" value="50" aria-label="До и после">
-        <video id="reel" src="assets/showreel.mp4" preload="none" playsinline controls hidden></video>
+      <figure class="viewer rv" style="--d:2" id="viewer" aria-label="Фото: Артур Габараев" data-en-label="Photo: Artur Gabaraev">
+        <div class="photo" id="photo"></div>
+        <div class="grid3"></div>
+        <div class="tc mono"><span>CAM A · 4K</span><span><b>●</b> REC <span id="tcode">00:00:00:00</span></span></div>
+        <div class="cap mono"><span>ARTUR GABARAEV</span><span>ISO 400 · f/1.8</span></div>
+        <i class="corner c1"></i><i class="corner c2"></i><i class="corner c3"></i><i class="corner c4"></i>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="services">
+    <div class="sec-hd">
+      <div><span class="tag mono"><b>[01]</b><span data-en="Services">Услуги</span></span><h2 class="rv" data-en="What I do">Чем помогу</h2></div>
+      <a class="more" href="price.html" data-page="price.html"><span data-en="All prices and packages">Все цены и пакеты</span><span>→</span></a>
+    </div>
+    <div class="svc-list" id="svc-list">
+      <article class="svc rv" data-scene="3"><span class="n mono">01</span><h3 data-en="Video editing">Видеомонтаж</h3><p data-en="Reels and Shorts, YouTube, ads and promo with motion graphics. Colour, titles, sound.">Reels и Shorts, YouTube, реклама и промо с моушеном. Цвет, титры, звук.</p><div class="tools mono"><span>Premiere</span><span>After Effects</span><span>DaVinci</span></div><span class="arr" aria-hidden="true">→</span></article>
+      <article class="svc rv" data-scene="0"><span class="n mono">02</span><h3 data-en="Websites">Сайты</h3><p data-en="Landing pages, business-card sites and corporate sites with RU/EN versions, SEO and mobile layout.">Лендинги, визитки и корпоративные сайты: RU/EN, SEO, адаптив под телефон.</p><div class="tools mono"><span>HTML / CSS</span><span>JS</span><span>Claude Code</span></div><span class="arr" aria-hidden="true">→</span></article>
+      <article class="svc rv" data-scene="4"><span class="n mono">03</span><h3 data-en="Logo &amp; identity">Логотип и айдентика</h3><p data-en="Logo, colours, type and simple rules that make a brand recognisable.">Логотип, цвета, шрифты и простые правила, по которым бренд узнают.</p><div class="tools mono"><span data-en="Logo">Логотип</span><span data-en="Guidelines">Гайдлайн</span></div><span class="arr" aria-hidden="true">→</span></article>
+      <article class="svc rv" data-scene="6"><span class="n mono">04</span><h3 data-en="Social media">Соцсети</h3><p data-en="Content plan, Reels, covers and profile design, run month by month.">Контент-план, Reels, обложки и оформление профиля — ведение помесячно.</p><div class="tools mono"><span>Instagram</span><span>TikTok</span><span>Telegram</span></div><span class="arr" aria-hidden="true">→</span></article>
+      <article class="svc rv" data-scene="2"><span class="n mono">05</span><h3 data-en="3D in Blender">3D в Blender</h3><p data-en="Product renders, short 3D animations and interiors for ads and marketplaces.">Предметные рендеры, короткая 3D-анимация и интерьеры для рекламы и маркетплейсов.</p><div class="tools mono"><span>Blender</span><span>Cycles</span></div><span class="arr" aria-hidden="true">→</span></article>
+      <article class="svc rv" data-scene="5"><span class="n mono">06</span><h3 data-en="Presentations">Презентации</h3><p data-en="Pitch decks and service decks in your brand style: structure, design, charts.">Питч-деки и презентации услуг в фирменном стиле: структура, дизайн, инфографика.</p><div class="tools mono"><span>Figma</span><span>PowerPoint</span><span>PDF</span></div><span class="arr" aria-hidden="true">→</span></article>
+      <article class="svc rv" data-scene="1"><span class="n mono">07</span><h3 data-en="Scripts &amp; bots">Скрипты и боты</h3><p data-en="Telegram bots and Python scripts that take routine work off your team.">Telegram-боты и скрипты на Python, которые снимают рутину с команды.</p><div class="tools mono"><span>Python</span><span>AI</span><span>API</span></div><span class="arr" aria-hidden="true">→</span></article>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="works">
+    <div class="sec-hd">
+      <div><span class="tag mono"><b>[02]</b><span data-en="Work">Работы</span></span><h2 class="rv" data-en="Work examples">Примеры работ</h2></div>
+      <p data-en="Real projects only. More examples on request in Telegram.">Только реальные проекты. Больше примеров пришлю в Telegram по запросу.</p>
+    </div>
+    <div class="works">
+      <article class="card w-noble rv">
+        <div class="stage">
+          <div class="browser"><div class="bar"><i></i><i></i><i></i><span>noble-avenue · real estate · dubai</span></div>
+            <div class="shots" id="shots"><img src="assets/work_noble.jpg" alt="Главная страница сайта Noble Avenue: Дубай, недвижимость" data-en-alt="Noble Avenue home page: Dubai real estate" loading="lazy"><img src="assets/work_noble_re.jpg" alt="Страница недвижимости сайта Noble Avenue" data-en-alt="Noble Avenue real estate page" loading="lazy"></div></div>
+          <div class="phone"><img src="assets/work_noble_m.jpg" alt="Мобильная версия сайта Noble Avenue" data-en-alt="Noble Avenue mobile version" loading="lazy"></div>
+        </div>
+        <div class="txt">
+          <span class="k mono"><b>01</b><span data-en="Website · Dubai">Сайт · Дубай</span></span>
+          <h3>Noble Avenue Real Estate</h3>
+          <p data-en="Website for a Dubai agency: real estate and turnkey business setup. Four pages, Russian and English, SEO and a mobile version.">Сайт агентства в Дубае: недвижимость и бизнес под ключ. Четыре страницы, русская и английская версии, SEO и мобильная вёрстка.</p>
+          <div class="chips mono"><span>RU / EN</span><span>SEO</span><span data-en="Mobile">Адаптив</span><span data-en="4 pages">4 страницы</span></div>
+        </div>
+      </article>
+
+      <article class="card w-video rv">
+        <div class="vid">
+        <div class="ba" id="ba" data-cursor="Тяни" data-cursor-en="Drag">
+          <img class="after" src="assets/work_after.jpg" alt="Кадр после обработки: палатки в горах в снегу и тумане" data-en-alt="After: tents in the mountains with snow and fog" loading="lazy">
+          <img class="before" src="assets/work_before.jpg" alt="Исходный кадр: палатки в горах" data-en-alt="Before: source shot of tents in the mountains" loading="lazy">
+          <span class="lbl l mono" data-en="BEFORE">ДО</span><span class="lbl r mono" data-en="AFTER">ПОСЛЕ</span>
+          <div class="bar"></div>
+          <input type="range" id="ba-range" min="0" max="100" value="50" aria-label="До и после" data-en-label="Before and after">
+          <video id="reel" src="assets/showreel.mp4" preload="none" playsinline controls hidden></video>
+        </div>
+        <div class="ba-bar">
+          <button type="button" class="play magnetic" id="play" data-mag=".4"><i aria-hidden="true"></i><span id="play-txt" data-en="Play the clip">Смотреть ролик</span></button>
+          <small class="mono" data-en="source → edit · 0:05">исходник → монтаж · 0:05</small>
+        </div>
+        </div>
+        <div class="txt">
+          <span class="k mono"><b>02</b><span data-en="Video · colour">Видео · цвет</span></span>
+          <h3 data-en="From raw footage to a finished shot">Из исходника — в готовый кадр</h3>
+          <p data-en="Drag across the frame to compare. Five years of editing for ads, social media and public campaigns, including work commissioned by GTRK Samara.">Проведите по кадру, чтобы сравнить. Пять лет монтажа для рекламы, соцсетей и информационных кампаний, в том числе по заказу ГТРК «Самара».</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="order">
+    <div class="sec-hd">
+      <div><span class="tag mono"><b>[03]</b><span data-en="How to order">Как заказать</span></span><h2 class="rv" data-en="Three steps">Три шага</h2></div>
+      <a class="more" href="price.html" data-page="price.html"><span data-en="Prices">Цены</span><span>→</span></a>
+    </div>
+    <div class="steps">
+      <div class="step rv" style="--d:0"><span class="n mono">01</span><h3 data-en="Write to me">Пишете в Telegram</h3><p data-en="The task, the deadline and a couple of examples you like. A voice message is fine.">Задача, сроки и пара примеров, которые нравятся. Можно голосовым.</p></div>
+      <div class="step rv" style="--d:1"><span class="n mono">02</span><h3 data-en="Quote within 24 hours">Оценка за 24 часа</h3><p data-en="Exact price, timeline and stages. You pay 50% upfront and work starts.">Точная цена, срок и этапы. Предоплата 50% — и начинаем.</p></div>
+      <div class="step rv" style="--d:2"><span class="n mono">03</span><h3 data-en="Result and handover">Результат и сдача</h3><p data-en="I show progress along the way. Two rounds of changes included, the rest is paid on approval.">Показываю промежуточные версии. Две правки включены, остаток — после приёмки.</p></div>
+    </div>
+    <div class="terms">
+      <div><small data-en="Upfront">Предоплата</small><b>50%</b></div>
+      <div><small data-en="Changes included">Правки включены</small><b data-en="2 rounds">2 круга</b></div>
+      <div><small data-en="Payment">Оплата</small><b data-en="USDT · RUB · AED">USDT · ₽ · AED</b></div>
+      <div><small data-en="Working language">Язык работы</small><b>RU / EN</b></div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="about">
+    <div class="sec-hd">
+      <div><span class="tag mono"><b>[04]</b><span data-en="About">Обо мне</span></span><h2 class="rv" data-en="Experience">Опыт</h2></div>
+    </div>
+    <div class="about">
+      <div class="bio rv">
+        <p data-en="I'm Artur Gabaraev. For <strong>5+ years</strong> I've worked across video, design and digital: from editing for a TV channel to running processes at a company in Dubai.">Я Артур Габараев. <strong>5+ лет</strong> работаю в видео, дизайне и digital: от монтажа для телеканала до процессов в компании в Дубае.</p>
+        <p data-en="I write code with AI tools, so websites and bots come out faster and cheaper than at an agency. English C1, so I work with clients in Russia, the UAE and elsewhere.">Пишу код с AI-инструментами, поэтому сайты и боты выходят быстрее и дешевле, чем в агентстве. Английский C1 — работаю с заказчиками из России, ОАЭ и других стран.</p>
       </div>
-      <div class="ba-bar">
-        <button type="button" class="play magnetic" id="play" data-mag=".45"><span class="play-ico" aria-hidden="true"></span><span id="play-txt" data-en="Play the clip">Смотреть ролик</span></button>
-        <span class="ba-meta" data-en="Source → edit · 0:05">Исходник → монтаж · 0:05</span>
-      </div>
+      <ul class="jobs">
+        <li class="rv" style="--d:0"><span class="yr mono" data-en="2024 — now">2024 — сейчас</span><h3 data-en="Executive Assistant <span>· INVESOL, Dubai</span>">Помощник руководителя <span>· INVESOL, Дубай</span></h3><p data-en="Automated internal processes with AI, documents, data and an international team in English.">Автоматизация процессов с AI, документы, данные, международная команда на английском.</p></li>
+        <li class="rv" style="--d:1"><span class="yr mono">2023 — 2024</span><h3 data-en="Specialist <span>· Research Institute of Labour, Moscow</span>">Специалист <span>· ВНИИ труда, Москва</span></h3><p data-en="Presentations, reports, layouts, banners and media materials.">Презентации, отчёты, макеты, баннеры и медиаматериалы.</p></li>
+        <li class="rv" style="--d:2"><span class="yr mono">2018 — 2023</span><h3 data-en="Photo &amp; video editor <span>· GTRK Samara, Dobro.rf</span>">Фото- и видеоредактор <span>· ГТРК «Самара», «Добро.рф»</span></h3><p data-en="Video for TV and public campaigns, several clients at once, tight deadlines.">Видео по заказу телеканала и для информационных кампаний, несколько заказчиков, сжатые сроки.</p></li>
+        <li class="rv" style="--d:3"><span class="yr mono" data-en="2023 — now">2023 — сейчас</span><h3 data-en="Software Engineering <span>· RTU MIREA</span>">Программная инженерия <span>· РТУ МИРЭА</span></h3><p data-en="Bachelor's degree, 4th year.">Бакалавриат, 4 курс.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="faq">
+    <div class="faq">
+      <div><span class="tag mono" style="font-size:12.5px;color:var(--mut);display:block;margin-bottom:14px"><b style="color:var(--red);font-weight:600">[05]</b> FAQ</span><h2 data-en="Common questions">Частые вопросы</h2><p data-en="Didn't find the answer? Ask in Telegram.">Не нашли ответ — спросите в Telegram.</p></div>
+      <div>
+        <details><summary><span data-en="How much does it cost?">Сколько стоит?</span><i></i></summary><p data-en="Prices start from $80 for a Reel and $1,000 for a business-card site. Everything is on the <a href='price.html' data-page='price.html'>price page</a>; the exact figure comes after the brief.">От $80 за Reels и от $1 000 за сайт-визитку. Всё собрано на <a href="price.html" data-page="price.html">странице цен</a>, точная сумма — после брифа.</p></details>
+        <details><summary><span data-en="How do I pay?">Как оплатить?</span><i></i></summary><p data-en="By transfer: USDT, roubles in Russia or dirhams in the UAE. 50% upfront, the rest on approval.">Переводом: USDT, рублями в России или дирхамами в ОАЭ. 50% предоплата, остаток — после приёмки.</p></details>
+        <details><summary><span data-en="How many changes are included?">Сколько правок входит?</span><i></i></summary><p data-en="Two rounds of changes are included in every project. Further changes are agreed separately.">В каждый проект входят два круга правок. Дальше — по договорённости.</p></details>
+        <details><summary><span data-en="Can I order several things at once?">Можно заказать всё сразу?</span><i></i></summary><p data-en="Yes, and it's cheaper: packages save about 25%. For example, logo + site + 4 Reels.">Да, и так выгоднее: пакеты дешевле примерно на 25%. Например, логотип + сайт + 4 Reels.</p></details>
+        <details><summary><span data-en="Do you work with clients outside Russia?">Работаете с заказчиками не из России?</span><i></i></summary><p data-en="Yes. I'm based between Dubai and Moscow and work online worldwide, in English or Russian.">Да. Я между Дубаем и Москвой, работаю онлайн по всему миру на русском или английском.</p></details>
       </div>
     </div>
   </section>
 
-  <section class="contact" id="contact">
-    <div class="wrap">
-      <p class="eyebrow" data-en="Contact">Контакты</p>
-      <div class="flash" id="flash">
-        <h2 class="flash-base" data-en="Let's make <em>something</em> together">Давайте сделаем <em>что-то</em> вместе</h2>
-      </div>
-      <button class="mail" id="mail" type="button" data-cursor="Копировать" data-cursor-en="Copy" aria-label="Скопировать почту">arturgabaraev191@gmail.com</button>
-      <div class="contact-row">
-        <a class="phone" href="tel:+79263902233">+7 926 390-22-33</a>
-        <div class="btns">
-          <a class="btn red magnetic" id="tg-link" href="#" target="_blank" rel="noopener" hidden>Telegram</a>
-          <a class="btn magnetic" href="assets/Gabaraev_Resume_RU.pdf" download target="_blank" rel="noopener">Резюме RU</a>
-          <a class="btn magnetic" href="assets/Gabaraev_Resume_EN.pdf" download target="_blank" rel="noopener">Resume EN</a>
-        </div>
-      </div>
-      <div class="foot"><span data-en="© 2026 Artur Gabaraev">© 2026 Артур Габараев</span><span data-en="Working in Russian and English">Работаю на русском и английском</span></div>
+  <section class="sec wrap contact" id="contact">
+    <span class="tag mono" style="font-size:12.5px;color:var(--mut)"><b style="color:var(--red);font-weight:600">[06]</b> <span data-en="Contact">Контакты</span></span>
+    <h2 class="big rv" data-en="Let's talk<i>?</i>">Обсудим задачу<i>?</i></h2>
+    <div class="row">
+      <p class="rv" data-en="Write in Telegram: what you need, by when, and an example you like. I reply within 24 hours with a price and a timeline.">Напишите в Telegram: что нужно, к какому сроку и пример, который нравится. Отвечу в течение 24 часов с ценой и сроком.</p>
+      <a class="pill tg tgbig magnetic" href="https://t.me/turelat" data-tg target="_blank" rel="noopener" data-mag=".5"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5ZM9.3 13.6l9.3-5.9c.4-.3.8-.1.5.2l-7.9 7.2-.3 3.4-1.6-4.9Z"/></svg>@turelat</a>
     </div>
+    <div class="cgrid">
+      <a href="https://t.me/turelat" data-tg target="_blank" rel="noopener"><small>Telegram</small><b>@turelat</b></a>
+      <button type="button" data-copy="+79263902233" data-cursor="Копировать" data-cursor-en="Copy"><small data-en="Phone · tap to copy">Телефон · нажмите, чтобы скопировать</small><b>+7 926 390-22-33</b></button>
+      <button type="button" data-copy="arturgabaraev191@gmail.com" data-cursor="Копировать" data-cursor-en="Copy"><small data-en="Email · tap to copy">Почта · нажмите, чтобы скопировать</small><b>arturgabaraev191@gmail.com</b></button>
+      <div class="cv"><small data-en="Resume, PDF">Резюме, PDF</small><a class="btn" href="assets/Gabaraev_Resume_RU.pdf" download target="_blank" rel="noopener">RU</a><a class="btn" href="assets/Gabaraev_Resume_EN.pdf" download target="_blank" rel="noopener">EN</a></div>
+    </div>
+    <footer class="foot mono"><span data-en="© 2026 Artur Gabaraev">© 2026 Артур Габараев</span><span data-en="Dubai · Moscow · online">Дубай · Москва · онлайн</span><a href="#top" data-en="Back to top ↑">Наверх ↑</a></footer>
   </section>
 </main>
 
+<div class="mbar" id="mbar"><a class="pill tg" href="https://t.me/turelat" data-tg target="_blank" rel="noopener" data-en="Message me on Telegram">Написать в Telegram</a></div>
 <div class="preview" id="preview" aria-hidden="true"><canvas id="pv" width="600" height="400"></canvas><div class="cap"><span id="pv-name"></span><b id="pv-num"></b></div></div>
 <div class="toast" id="toast" role="status"></div>
+<div class="cur" aria-hidden="true"></div><div class="ring" aria-hidden="true"><i></i><b></b></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+<script src="assets/ag.js"></script>
 <script>
 (() => {
-  // Set your Telegram username here (without @) to show the button.
-  const TELEGRAM = 'turelat';
+  const { $, $$, fine, reduce, mouse } = AG;
 
-  const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const $ = (s, r = document) => r.querySelector(s);
-  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-  const mouse = { x: innerWidth / 2, y: innerHeight / 2, vx: 0, vy: 0 };
-  addEventListener('pointermove', e => { mouse.vx = e.clientX - mouse.x; mouse.vy = e.clientY - mouse.y; mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
-
-  if (TELEGRAM) { const t = $('#tg-link'); t.href = 'https://t.me/' + TELEGRAM; t.hidden = false; }
-
-  /* ---------- ticker ---------- */
-  const tickerItems = {
-    ru: ['Веб-разработка', 'Программирование', '3D в Blender', 'Видеомонтаж', 'Photoshop', 'Айдентика', 'Презентации', 'Соцсети', 'Личный помощник'],
-    en: ['Web development', 'Programming', '3D in Blender', 'Video editing', 'Photoshop', 'Brand identity', 'Presentations', 'Social media', 'Personal assistance'],
-  };
-  const fillTicker = l => { const s = tickerItems[l].map(t => `<span>${t}</span>`).join(''); $('#ticker').innerHTML = s + s; };
-
-  /* ---------- text scramble ---------- */
-  const GLYPHS = 'АБВГДЖЗКЛМНПРСТФХЦШЭЮЯABCDEFGHJKLMNPQRSTUVWXYZ#%&*+=';
-  // A wave runs left to right: each letter flickers briefly, then settles. Time-based, so it is the
-  // same speed on any screen; glyphs keep the target letter's case so the line barely changes width.
-  const LOW = 'абвгдежзиклмнопрстуфхцчшэюяabcdefghijkmnopqrstuvwxyz', UP = LOW.toUpperCase();
-  function scramble(el, to, html, dur = 700, glyphAlpha = .75) {
-    if (reduce) { if (html) el.innerHTML = html; else el.textContent = to; return; }
-    const from = el.textContent, len = Math.max(from.length, to.length), t0 = performance.now();
-    const win = Math.min(.45, 6 / Math.max(len, 1)); // how long each letter flickers, as a share of the wave
-    const cur = Array.from({ length: len }, () => '');
-    let frame = 0; cancelAnimationFrame(el._sc);
-    const tick = now => {
-      const p = Math.min(1, (now - t0) / dur);
-      let out = '';
-      for (let i = 0; i < len; i++) {
-        const a = (i / len) * (1 - win), b = a + win, f = from[i] || '', t = to[i] || '';
-        if (p >= b) out += t;
-        else if (p >= a && t.trim()) {
-          if (!cur[i] || frame % 3 === 0) { const set = t === t.toLowerCase() ? LOW : UP; cur[i] = set[Math.random() * set.length | 0]; }
-          out += '<span style="color:var(--red);opacity:' + glyphAlpha + '">' + cur[i] + '</span>';
-        } else out += p >= a ? t : f;
-      }
-      el.innerHTML = out; frame++;
-      if (p < 1) el._sc = requestAnimationFrame(tick);
-      else if (html) el.innerHTML = html; else el.textContent = to;
-    };
-    el._sc = requestAnimationFrame(tick);
-  }
-  const toText = h => { const d = document.createElement('div'); d.innerHTML = h; return d.textContent; };
-  $$('[data-scramble]').forEach(el => {
-    el._html = el.innerHTML;
-    el.addEventListener('mouseenter', () => {
-      const h = el.dataset.en ? (lang === 'en' ? el.dataset.en : el.dataset.ru) : el._html;
-      scramble(el, toText(h), h, 360, .4);
-    });
+  /* ---------- viewer: running timecode and a slight parallax ---------- */
+  const tc = $('#tcode'), t0 = performance.now() - 5 * 1000 - 12 * 40;
+  const p2 = n => String(n).padStart(2, '0');
+  (function clock(now) {
+    const f = Math.floor((now - t0) / 40), s = Math.floor(f / 25);
+    tc.textContent = `00:${p2(Math.floor(s / 60) % 60)}:${p2(s % 60)}:${p2(f % 25)}`;
+    if (!reduce) requestAnimationFrame(clock);
+  })(performance.now());
+  const viewer = $('#viewer'), photo = $('#photo');
+  if (fine && !reduce) viewer.addEventListener('pointermove', e => {
+    const r = viewer.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+    photo.style.transform = `translate3d(${(-x * 14).toFixed(1)}px,${(-y * 8).toFixed(1)}px,0) scale(1.03)`;
   });
+  viewer.addEventListener('pointerleave', () => photo.style.transform = '');
 
-  /* ---------- language ---------- */
-  $$('[data-en]').forEach(el => { el.dataset.ru = el.innerHTML; });
-  let lang = 'ru';
-  function setLang(l, animate) {
-    lang = l; document.documentElement.lang = l;
-    $('#lang-ru').setAttribute('aria-pressed', l === 'ru'); $('#lang-en').setAttribute('aria-pressed', l === 'en');
-    $('.lang').classList.toggle('en', l === 'en');
-    // Short visible lines run the letter wave; long paragraphs dissolve and settle back; the rest swap silently.
-    const els = $$('[data-en]');
-    const val = el => l === 'en' ? el.dataset.en : el.dataset.ru;
-    const plain = h => { const d = document.createElement('div'); d.innerHTML = h; return d.textContent; };
-    const onScreen = el => { if (!el.offsetParent) return false; const r = el.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; };
-    els.forEach(el => {
-      const v = val(el);
-      if (!animate || reduce || !onScreen(el)) { cancelAnimationFrame(el._sc); el.innerHTML = v; return; }
-      const txt = plain(v), dur = 520 + Math.min(txt.length, 60) * 6;
-      // the red flashlight copy is masked; it switches when the visible line has settled so the two never disagree
-      if (el.classList.contains('flash-lit')) { setTimeout(() => { el.innerHTML = v; }, dur); return; }
-      if (txt.length <= 90) scramble(el, txt, v, dur);
-      else {
-        el.animate([{ opacity: 1, filter: 'blur(0px)' }, { opacity: 0, filter: 'blur(6px)' }], { duration: 240, easing: 'ease-in' })
-          .finished.then(() => { el.innerHTML = v; el.animate([{ opacity: 0, filter: 'blur(6px)' }, { opacity: 1, filter: 'blur(0px)' }], { duration: 520, easing: 'cubic-bezier(.2,.8,.2,1)' }); }, () => { el.innerHTML = v; });
-        el.style.opacity = ''; setTimeout(() => { if (el.innerHTML !== v) el.innerHTML = v; }, 400);
-      }
-    });
-    $$('[data-en-alt]').forEach(el => { el.dataset.ruAlt ??= el.alt; el.alt = l === 'en' ? el.dataset.enAlt : el.dataset.ruAlt; });
-    $('#cv-link').href = `assets/Gabaraev_Resume_${l.toUpperCase()}.pdf`;
-    $('#mail').setAttribute('aria-label', l === 'en' ? 'Copy email' : 'Скопировать почту');
-    fillTicker(l);
-    try { localStorage.setItem('ag-lang', l); } catch (e) {}
-    if (animate && (!location.hash || fromHash())) try { history.replaceState(null, '', '#' + l); } catch (e) {}
-  }
-  $('#lang-ru').onclick = () => setLang('ru', true);
-  $('#lang-en').onclick = () => setLang('en', true);
-
-  /* ---------- custom cursor ---------- */
-  const cur = $('.cur'), ring = $('.ring'), ringLabel = $('.ring b');
-  if (fine && !reduce) {
-    document.documentElement.classList.add('has-cursor');
-    let rx = mouse.x, ry = mouse.y;
-    (function loop() {
-      rx += (mouse.x - rx) * .18; ry += (mouse.y - ry) * .18; mouse.rx = rx; mouse.ry = ry;
-      cur.style.transform = `translate3d(${mouse.x}px,${mouse.y}px,0)`;
-      ring.style.transform = `translate3d(${rx}px,${ry}px,0)`;
-      requestAnimationFrame(loop);
-    })();
-    document.addEventListener('pointerover', e => {
-      const lab = e.target.closest('[data-cursor]');
-      const link = e.target.closest('a, button, input');
-      ring.classList.toggle('label', !!lab);
-      ring.classList.toggle('hover', !!link && !lab);
-      if (lab) ringLabel.textContent = lang === 'en' ? lab.dataset.cursorEn : lab.dataset.cursor;
-    });
-    document.addEventListener('pointerleave', () => ring.classList.add('hide'));
-    document.addEventListener('pointerenter', () => ring.classList.remove('hide'));
-
-    // magnetic buttons
-    // The pull starts at zero on the edge of a field around each button and grows smoothly toward
-    // its centre, and the offset is eased every frame, so there is no jump when the cursor arrives.
-    // Travel is capped so neighbouring buttons never meet; data-mag scales the pull per button.
-    const mags = $$('.magnetic').map(el => ({ el, x: 0, y: 0, k: parseFloat(el.dataset.mag || 1) }));
-    let overVideo = false;
-    $('#ba').addEventListener('pointerenter', () => overVideo = true);
-    $('#ba').addEventListener('pointerleave', () => overVideo = false);
-    (function magLoop() {
-      for (const m of mags) {
-        const r = m.el.getBoundingClientRect();
-        let tx = 0, ty = 0;
-        if (r.bottom > -100 && r.top < innerHeight + 100 && r.width && !(overVideo && m.el.id === 'play')) {
-          const cx = r.left + r.width / 2 - m.x, cy = r.top + r.height / 2 - m.y;
-          const dx = mouse.x - cx, dy = mouse.y - cy;
-          const reach = Math.max(r.width, r.height) / 2 + 90;
-          const k = Math.max(0, 1 - Math.hypot(dx, dy) / reach), s = k * k * (3 - 2 * k);
-          const cap = (v, c) => c * Math.tanh(v / c); // soft limit: eases into the cap instead of hitting it
-          tx = cap(dx * .35 * s * m.k, 12); ty = cap(dy * .45 * s * m.k, 9);
-        }
-        m.x += (tx - m.x) * .12; m.y += (ty - m.y) * .12;
-        if (Math.abs(m.x) < .05 && Math.abs(m.y) < .05 && !tx && !ty) { if (m.el.style.transform) m.el.style.transform = ''; m.x = m.y = 0; }
-        else m.el.style.transform = `translate3d(${m.x.toFixed(2)}px,${m.y.toFixed(2)}px,0)`;
-      }
-      requestAnimationFrame(magLoop);
-    })();
-  }
-
-  /* ---------- flashlights: hero surname and contact heading ---------- */
-  function flashlight(lit, area, radius, path) {
-    let last = 0, lx = .5, ly = .5, tx = .5, ty = .5;
-    const aim = (x, y) => { const r = lit.getBoundingClientRect(); tx = (x - r.left) / r.width; ty = (y - r.top) / r.height; last = performance.now(); };
-    area.addEventListener('pointermove', e => aim(e.clientX, e.clientY));
-    const touch = e => aim(e.touches[0].clientX, e.touches[0].clientY);
-    area.addEventListener('touchstart', touch, { passive: true });
-    area.addEventListener('touchmove', touch, { passive: true });
-    (function light(t) {
-      if (performance.now() - last > 1800) [tx, ty] = path(t); // autopilot when the cursor is away or on touch screens
-      const k = reduce ? 1 : .09; lx += (tx - lx) * k; ly += (ty - ly) * k;
-      lit.style.setProperty('--mx', lx * 100 + '%'); lit.style.setProperty('--my', ly * 100 + '%');
-      lit.style.setProperty('--r', radius() + 'px');
-      requestAnimationFrame(light);
-    })(0);
-  }
-  const hero = $('#hero');
-  flashlight($('.bigword .lit'), hero, () => Math.min(260, innerWidth * .2), t => [.5 + Math.sin(t / 1700) * .42, .5 + Math.sin(t / 900) * .3]);
-
-  // red silhouette behind the portrait drifts opposite to the cursor
-  const portrait = $('#portrait'); let sx = 0, sy = 0;
-  (function sil() {
-    const pr = portrait.getBoundingClientRect(); // centred when the cursor is on the figure, drifts slightly away from it otherwise
-    const tx = -((mouse.x - (pr.left + pr.width / 2)) / innerWidth) * 30, ty = -((mouse.y - (pr.top + pr.height * .35)) / innerHeight) * 18;
-    if (fine && !reduce && Math.abs(tx - sx) + Math.abs(ty - sy) > .1) {
-      sx += (tx - sx) * .06; sy += (ty - sy) * .06;
-      portrait.style.setProperty('--sx', sx.toFixed(1) + 'px'); portrait.style.setProperty('--sy', sy.toFixed(1) + 'px');
-    }
-    requestAnimationFrame(sil);
-  })();
+  /* ---------- Noble Avenue: pages change every few seconds while on screen ---------- */
+  const shots = $('#shots'); let shotTimer;
+  new IntersectionObserver(([e]) => { clearInterval(shotTimer); if (e.isIntersecting && !reduce) shotTimer = setInterval(() => shots.classList.toggle('alt'), 3200); }).observe(shots);
 
   /* ---------- service previews ---------- */
   const pv = $('#pv'), ctx = pv.getContext('2d'), prev = $('#preview');
@@ -796,10 +480,9 @@ section { position: relative; }
       const cx = 34 + 70 * ease(p - .8) - 10, cy = 104; ctx.fillStyle = C.fg; ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + 9, cy + 13); ctx.lineTo(cx + 3, cy + 12); ctx.closePath(); ctx.fill();
     },
     t => { // code: lines type out
-      ctx.font = '600 11px Manrope, monospace';
+      ctx.font = '600 11px "JetBrains Mono", monospace';
       const lines = [['def', 'automate', '(task):'], ['  data', '=', 'load(task)'], ['  for', 'row', 'in data:'], ['    send', '(', 'report)'], ['  return', 'done', ''], ['', '# 3 hours → 4 min', '']];
-      const n = (t * 14) % 120;
-      let shown = n;
+      const n = (t * 14) % 120; let shown = n;
       lines.forEach((l, i) => {
         ctx.fillStyle = '#55555C'; ctx.fillText(i + 1, 22, 38 + i * 24);
         let x = 44; l.forEach((w, j) => {
@@ -826,7 +509,7 @@ section { position: relative; }
       rr(20, 18, 260, 92, 8, '#000');
       const ph = (t * 40) % 260;
       ctx.fillStyle = ph < 90 ? '#2C1A1D' : ph < 170 ? '#1A1F2C' : '#2C2A1A'; ctx.fillRect(24, 22, 252, 84);
-      ctx.fillStyle = C.fg; ctx.font = '700 12px Unbounded, sans-serif'; ctx.fillText('00:0' + (ph / 30 | 0) + ':' + String((ph * 2.3 | 0) % 60).padStart(2, '0'), 34, 98);
+      ctx.fillStyle = C.fg; ctx.font = '600 12px "JetBrains Mono", monospace'; ctx.fillText('00:0' + (ph / 30 | 0) + ':' + String((ph * 2.3 | 0) % 60).padStart(2, '0'), 34, 98);
       [[20, 88, C.fill], [112, 70, '#C93A55'], [186, 94, C.fill]].forEach(([x, w, c]) => rr(x, 122, w - 4, 20, 4, c));
       [[20, 140], [164, 116]].forEach(([x, w]) => rr(x, 148, w - 4, 14, 4, C.mute));
       ctx.fillStyle = '#55555C'; for (let x = 20; x < 280; x += 4) { const h = 2 + Math.abs(Math.sin(x * .3) * Math.sin(x * .07)) * 12; ctx.fillRect(x, 176 - h / 2, 2, h); }
@@ -838,12 +521,11 @@ section { position: relative; }
       ctx.fillStyle = C.fill; ctx.beginPath(); ctx.arc(0, 0, r, 0, Math.PI * 2 * ease(p * 2.5)); ctx.lineTo(0, 0); ctx.fill();
       ctx.fillStyle = C.bg; ctx.fillRect(-6, -r - 2, 12, r * 2 + 4);
       ctx.restore();
-      ctx.fillStyle = C.fg; ctx.font = '800 22px Unbounded, sans-serif'; ctx.globalAlpha = ease(p * 3 - 1); ctx.fillText('AG', 172, 100); ctx.globalAlpha = 1;
+      ctx.fillStyle = C.fg; ctx.font = '800 24px Geologica, sans-serif'; ctx.globalAlpha = ease(p * 3 - 1); ctx.fillText('AG.', 172, 100); ctx.globalAlpha = 1;
       ['#E11D35', '#F2F1EC', '#121214', '#FF8A96'].forEach((c, i) => { rr(40 + i * 58, 156 - 8 * ease(p * 4 - 1.5 - i * .2), 50, 26, 6, c); ctx.strokeStyle = '#2A2A2E'; ctx.stroke(); });
     },
-    t => { // presentations: a deck pages through three different slides
-      const cyc = 2.8, p = (t % cyc) / cyc, n = Math.floor(t / cyc);
-      const out = ease((p - .72) / .28);
+    t => { // presentations: a deck pages through three slides
+      const cyc = 2.8, p = (t % cyc) / cyc, n = Math.floor(t / cyc), out = ease((p - .72) / .28);
       const slide = (x, y, s, kind, prog, alpha, rot) => {
         const w = 196 * s, h = 116 * s;
         ctx.save(); ctx.globalAlpha = alpha; ctx.translate(x + w / 2, y + h / 2); ctx.rotate(rot); ctx.translate(-w / 2, -h / 2);
@@ -853,328 +535,75 @@ section { position: relative; }
         rr(14, 14, 8, 8, 2, C.fill); rr(28, 15, 70 * ease(prog * 3), 6, 3, C.fg);
         if (kind === 0) { [34, 56, 44, 78].forEach((v, i) => rr(18 + i * 26, 100 - v * ease(prog * 2.2 - i * .15), 16, v * ease(prog * 2.2 - i * .15), 3, i === 3 ? C.fill : '#4A4A52')); rr(128, 40, 52, 5, 2, '#4A4A52'); rr(128, 52, 40, 5, 2, '#4A4A52'); }
         if (kind === 1) { for (let i = 0; i < 3; i++) { const q = ease(prog * 2.5 - i * .35); ctx.globalAlpha = alpha * q; ctx.fillStyle = C.red; ctx.beginPath(); ctx.arc(22, 46 + i * 20, 3, 0, 7); ctx.fill(); rr(32, 43 + i * 20, (110 - i * 22) * q, 6, 3, '#8A8A92'); } ctx.globalAlpha = alpha; }
-        if (kind === 2) { ctx.fillStyle = C.fg; ctx.font = '800 26px Unbounded, sans-serif'; ctx.fillText('+' + Math.round(42 * ease(prog * 2)) + '%', 18, 70);
+        if (kind === 2) { ctx.fillStyle = C.fg; ctx.font = '800 26px Geologica, sans-serif'; ctx.fillText('+' + Math.round(42 * ease(prog * 2)) + '%', 18, 70);
           ctx.strokeStyle = C.red; ctx.lineWidth = 2.5; ctx.beginPath(); const k = ease(prog * 2.2); for (let i = 0; i <= 10 * k; i++) { const xx = 112 + i * 6.5, yy = 92 - i * 4 - Math.sin(i * 1.3) * 5; i ? ctx.lineTo(xx, yy) : ctx.moveTo(xx, yy); } ctx.stroke(); }
         ctx.fillStyle = '#55555C'; ctx.font = '600 7px Manrope, sans-serif'; ctx.fillText(String(kind + 1).padStart(2, '0') + ' / 03', 160, 108);
         ctx.restore();
       };
-      // the next slide waits behind and grows into place as the current one leaves
-      slide(64 - 10 * out, 48 - 14 * (1 - out) + 0 * out, .86 + .14 * out, (n + 1) % 3, 0, .5 + .5 * out, 0);
+      slide(64 - 10 * out, 48 - 14 * (1 - out), .86 + .14 * out, (n + 1) % 3, 0, .5 + .5 * out, 0);
       slide(52 - 170 * out, 42 - 20 * out, 1, n % 3, Math.min(1, p / .7), 1 - out, -.18 * out);
       for (let i = 0; i < 3; i++) rr(132 + i * 12, 184, i === n % 3 ? 16 : 6, 4, 2, i === n % 3 ? C.fill : '#3A3A40');
     },
     t => { // social media: feed + hearts
       rr(100, 10, 100, 182, 16, '#000'); rr(104, 14, 92, 174, 13, C.dim);
       for (let i = 0; i < 9; i++) { const f = ease(t * 1.5 % 9 - i * .6); rr(110 + (i % 3) * 28, 40 + (i / 3 | 0) * 28, 24 * f, 24 * f, 4, i % 4 === 0 ? C.fill : C.mute); }
-      ctx.fillStyle = C.fg; ctx.font = '700 11px Unbounded, sans-serif'; ctx.fillText('♥ ' + (1200 + (t * 37 | 0)).toLocaleString('ru'), 112, 150);
+      ctx.fillStyle = C.fg; ctx.font = '700 11px Geologica, sans-serif'; ctx.fillText('♥ ' + (1200 + (t * 37 | 0)).toLocaleString('ru'), 112, 150);
       for (let i = 0; i < 6; i++) { const q = (t * .6 + i / 6) % 1; ctx.globalAlpha = 1 - q; ctx.fillStyle = C.red; ctx.font = (12 + i * 2) + 'px sans-serif'; ctx.fillText('♥', 214 + Math.sin(q * 9 + i) * 14 + i * 8, 180 - q * 150); }
       ctx.globalAlpha = 1;
     },
-    t => { // assistant: checklist ticks
-      const items = lang === 'en' ? ['Reply to emails', 'Book the meeting', 'Prepare the report', 'Find suppliers'] : ['Ответить на письма', 'Назначить встречу', 'Собрать отчёт', 'Найти подрядчиков'];
-      const p = t % 5;
-      ctx.font = '600 13px Manrope, sans-serif';
-      items.forEach((s, i) => {
-        const y = 36 + i * 38, on = p > i + .6;
-        ctx.strokeStyle = on ? C.red : '#55555C'; ctx.lineWidth = 2; ctx.beginPath(); ctx.roundRect(30, y - 12, 20, 20, 5); ctx.stroke();
-        if (on) { rr(30, y - 12, 20, 20, 5, C.fill); ctx.strokeStyle = C.fg; ctx.beginPath(); ctx.moveTo(35, y - 2); ctx.lineTo(39, y + 3); ctx.lineTo(46, y - 6); ctx.stroke(); }
-        ctx.fillStyle = on ? '#6A6A70' : C.fg; ctx.fillText(s, 64, y + 3);
-        if (on) { ctx.fillStyle = '#6A6A70'; ctx.fillRect(64, y - 2, ctx.measureText(s).width * ease((p - i - .6) * 3), 1.5); }
-      });
-    },
   ];
-  let active = -1, px = mouse.x, py = mouse.y, rot = 0, t0 = 0;
-  // loop length of each scene in seconds (0 = endless motion); the frame fades through the background at the seam
-  const LOOP = [4, 120 / 14, 0, 6.5, 5, 0, 6, 5];
+  // loop length of each scene in seconds (0 = endless); the frame fades through the background at the seam
+  const LOOP = [4, 120 / 14, 0, 6.5, 5, 0, 6];
+  let active = -1, scene = 0, px = mouse.x, py = mouse.y, rot = 0, st = 0;
   function paint(ms) {
-    const t = reduce ? 1.5 : (ms - t0) / 1000, L = LOOP[active];
+    const t = reduce ? 1.5 : (ms - st) / 1000, L = LOOP[scene];
     ctx.globalAlpha = 1; ctx.fillStyle = C.bg; ctx.fillRect(0, 0, 300, 200);
-    scenes[active](L ? t % L : t);
+    scenes[scene](L ? t % L : t);
     if (L && !reduce) { const tt = t % L, a = Math.min(1, tt / .3, (L - tt) / .4); if (a < 1) { ctx.globalAlpha = 1 - a; ctx.fillStyle = C.bg; ctx.fillRect(0, 0, 300, 200); ctx.globalAlpha = 1; } }
   }
   const svcs = $$('.svc');
+  const label = (s, i) => { $('#pv-name').textContent = s.querySelector('h3').textContent; $('#pv-num').textContent = String(i + 1).padStart(2, '0') + ' / 07'; };
+  ctx.scale(2, 2);
   if (fine) {
-    svcs.forEach((s, i) => {
-      s.addEventListener('pointerenter', () => { if (active !== i) t0 = performance.now(); active = i; prev.classList.add('on'); $('#pv-name').textContent = s.querySelector('h3').textContent; $('#pv-num').textContent = String(i + 1).padStart(2, '0') + ' / 08'; });
-    });
+    svcs.forEach((s, i) => s.addEventListener('pointerenter', () => { if (active !== i) st = performance.now(); active = i; scene = +s.dataset.scene; prev.classList.add('on'); label(s, i); }));
     $('#svc-list').addEventListener('pointerleave', () => { active = -1; prev.classList.remove('on'); });
-    ctx.scale(2, 2);
     (function draw(ms) {
-      const t = reduce ? 1.5 : ms / 1000;
       px += (mouse.x - px) * .14; py += (mouse.y - py) * .14;
       rot += ((mouse.x - px) * .06 - rot) * .2;
-      const x = Math.min(px + 28, innerWidth - 320), y = Math.min(Math.max(py - 120, 70), innerHeight - 260);
-      prev.style.transform = `translate3d(${x}px,${y}px,0) rotate(${Math.max(-12, Math.min(12, rot))}deg) scale(${active < 0 ? .6 : 1})`;
+      const x = Math.min(px + 28, innerWidth - 320), y = Math.min(Math.max(py - 120, 80), innerHeight - 260);
+      prev.style.transform = `translate3d(${x}px,${y}px,0) rotate(${Math.max(-10, Math.min(10, rot))}deg) scale(${active < 0 ? .6 : 1})`;
       if (active >= 0) paint(ms);
       requestAnimationFrame(draw);
     })(0);
   } else {
-    ctx.scale(2, 2);
     svcs.forEach((s, i) => s.addEventListener('click', () => {
       const opening = active !== i;
-      svcs.forEach(x => x.classList.remove('open')); prev.classList.remove('on');
-      active = opening ? i : -1; t0 = performance.now();
+      svcs.forEach(x => x.classList.remove('open')); prev.classList.remove('on', 'inline');
+      active = opening ? i : -1; st = performance.now();
       if (!opening) return;
-      s.classList.add('open'); s.appendChild(prev); prev.classList.add('inline', 'on');
-      $('#pv-name').textContent = s.querySelector('h3').textContent; $('#pv-num').textContent = String(i + 1).padStart(2, '0') + ' / 08';
+      scene = +s.dataset.scene; s.classList.add('open'); s.appendChild(prev); prev.classList.add('inline', 'on'); label(s, i);
     }));
-    (function drawTouch(ms) {
-      if (active >= 0) paint(ms);
-      requestAnimationFrame(drawTouch);
-    })(0);
+    (function drawTouch(ms) { if (active >= 0) paint(ms); requestAnimationFrame(drawTouch); })(0);
   }
 
-  /* ---------- physics skill pit ---------- */
-  const pit = $('#pit');
-  let physics = null;
-  function makePhysics() {
-    const { Engine, Bodies, Composite, Body, Mouse, MouseConstraint } = Matter;
-    let engine, items, mc, pusher, inPit = false, running = false, wasOn = false, ps = 1;
-    const MIN = .04;
-    function build() {
-      engine = Engine.create({ positionIterations: 12, velocityIterations: 10, constraintIterations: 4 }); engine.gravity.y = 1;
-      pit.classList.remove('live');
-      const box = pit.getBoundingClientRect(), W = pit.clientWidth, H = pit.clientHeight;
-      const tags = $$('.tag', pit);
-      const start = tags.map(el => { const r = el.getBoundingClientRect(); return [r.left - box.left + r.width / 2, r.top - box.top + r.height / 2, r.width, r.height]; });
-      pit.classList.add('live');
-      items = tags.map((el, i) => {
-        const [x, y, w, h] = start[i];
-        const b = Bodies.rectangle(x, y - H * .15, w, h, { chamfer: { radius: h / 2 }, restitution: .32, friction: .3, frictionAir: .012, density: .002, slop: .02 });
-        Body.setAngle(b, (Math.random() - .5) * .4);
-        return { el, b, w, h };
-      });
-      const wall = { isStatic: true };
-      pusher = Bodies.circle(-300, -300, 46, { isStatic: true }); // matches the 96px cursor ring
-      Body.scale(pusher, MIN, MIN); ps = MIN; wasOn = false;
-      Composite.add(engine.world, pusher);
-      Composite.add(engine.world, [Bodies.rectangle(W / 2, H + 50, W * 3, 100, wall), Bodies.rectangle(-50, H / 2, 100, H * 4, wall), Bodies.rectangle(W + 50, H / 2, 100, H * 4, wall), Bodies.rectangle(W / 2, -H * 1.5, W * 3, 100, wall), ...items.map(i => i.b)]);
-      if (fine) {
-        const m = Mouse.create(pit);
-        ['mousewheel', 'DOMMouseScroll', 'wheel'].forEach(ev => pit.removeEventListener(ev, m.mousewheel));
-        mc = MouseConstraint.create(engine, { mouse: m, constraint: { stiffness: .14, damping: .08, render: { visible: false } } });
-        Composite.add(engine.world, mc);
-      }
-      render();
-    }
-    function render() { items.forEach(({ el, b, w, h }) => { el.style.transform = `translate(${b.position.x - w / 2}px,${b.position.y - h / 2}px) rotate(${b.angle}rad)`; }); }
-    function push(cx, cy, vx, vy, power) {
-      items.forEach(({ b }) => {
-        const dx = b.position.x - cx, dy = b.position.y - cy, d = Math.hypot(dx, dy);
-        if (d < 110 && d > 0) { const f = 1 - d / 110; Body.applyForce(b, b.position, { x: (vx * .00035 + dx / d * power) * f * b.mass, y: (vy * .00035 + dy / d * power - power * .5) * f * b.mass }); }
-      });
-    }
-    pit.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') inPit = true; });
-    pit.addEventListener('pointerleave', () => { inPit = false; });
-    // The pusher grows from a dot to full size as the cursor enters, in step with the ring turning white,
-    // and shrinks in place on the way out, so the tags start and stop reacting gently instead of jumping.
-    function movePusher() {
-      const r = pit.getBoundingClientRect(), on = fine && inPit && !(mc && mc.body);
-      const next = ps + ((on ? 1 : MIN) - ps) * .1;
-      if (Math.abs(next - ps) > 1e-4) { Body.scale(pusher, next / ps, next / ps); ps = next; }
-      if (on) Body.setPosition(pusher, { x: mouse.rx - r.left, y: mouse.ry - r.top }, wasOn); // carry velocity only while it is moving inside the pit
-      else if (ps < MIN * 1.5) Body.setPosition(pusher, { x: -300, y: -300 });
-      wasOn = on;
-    }
-    if (!fine) { // on phones the tags hop when the page is scrolled
-      let lastY = scrollY;
-      addEventListener('scroll', () => {
-        const v = Math.min(40, Math.abs(scrollY - lastY)); lastY = scrollY;
-        if (running && v > 2) items.forEach(({ b }) => Body.applyForce(b, b.position, { x: (Math.random() - .5) * .0005 * v * b.mass, y: -.0004 * v * b.mass }));
-      }, { passive: true });
-    }
-    pit.addEventListener('pointerdown', e => {
-      if (e.pointerType === 'mouse') return;
-      const r = pit.getBoundingClientRect(); push(e.clientX - r.left, e.clientY - r.top, 0, 0, .03);
-    });
-    // fixed 120 Hz steps whatever the monitor's refresh rate, so motion is even and never runs fast
-    const STEP = 1000 / 120; let acc = 0, last = 0;
-    function loop(now) {
-      if (!running) return;
-      acc += Math.min(50, now - (last || now)); last = now;
-      movePusher();
-      while (acc >= STEP) { Engine.update(engine, STEP); acc -= STEP; }
-      render(); requestAnimationFrame(loop);
-    }
-    const io = new IntersectionObserver(([en]) => { const was = running; running = en.isIntersecting; if (running && !was) { last = 0; requestAnimationFrame(loop); } });
-    build(); io.observe(pit);
-    let lastW = pit.clientWidth;
-    addEventListener('resize', () => { if (Math.abs(pit.clientWidth - lastW) > 40) { lastW = pit.clientWidth; rebuild(); } });
-    function rebuild() { Composite.clear(engine.world); Engine.clear(engine); $$('.tag', pit).forEach(el => el.style.transform = ''); build(); }
-    return { rebuild };
-  }
-  if (!fine) { const h = $('.hint', pit); h.dataset.ru = 'Листайте или тапайте'; h.dataset.en = 'Scroll or tap'; }
-  if (window.Matter && !reduce) {
-    const go = new IntersectionObserver(([en]) => { if (en.isIntersecting) { go.disconnect(); setTimeout(() => physics = makePhysics(), 250); } }, { threshold: .35 });
-    go.observe(pit);
-  }
-
-  /* ---------- timeline ghost year ---------- */
-  const tl = $('#tl'), ghost = $('#tl-ghost');
-  $$('.job', tl).forEach(j => j.addEventListener('pointerenter', () => {
-    if (ghost.textContent !== j.dataset.year) ghost.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 400, easing: 'ease-out' });
-    ghost.textContent = j.dataset.year; tl.classList.add('hovering');
-    ghost.style.transform = `translateY(${j.offsetTop + j.offsetHeight / 2 - ghost.offsetHeight / 2}px)`;
-  }));
-  tl.addEventListener('pointerleave', () => tl.classList.remove('hovering'));
-
-  /* ---------- before / after ---------- */
-  const ba = $('#ba'), range = $('#ba-range');
+  /* ---------- before / after + clip ---------- */
+  const ba = $('#ba'), range = $('#ba-range'), reel = $('#reel'), play = $('#play'), ptxt = $('#play-txt');
   range.addEventListener('input', () => ba.style.setProperty('--pos', range.value + '%'));
-  const reel = $('#reel'), play = $('#play');
-  function stopReel() { reel.pause(); reel.hidden = true; ba.classList.remove('playing'); ba.dataset.cursor = 'Тяни'; play.classList.remove('on'); $('#play-txt').textContent = lang === 'en' ? 'Play the clip' : 'Смотреть ролик'; }
+  const playLabel = on => { const l = AG.lang(); ptxt.textContent = on ? (l === 'en' ? 'Back to slider' : 'К слайдеру') : (l === 'en' ? 'Play the clip' : 'Смотреть ролик'); };
+  function stopReel() { reel.pause(); reel.hidden = true; ba.classList.remove('playing'); ba.dataset.cursor = 'Тяни'; play.classList.remove('on'); playLabel(false); }
   play.addEventListener('click', () => {
     if (!reel.hidden) { stopReel(); return; }
-    reel.hidden = false; ba.classList.add('playing'); play.classList.add('on'); delete ba.dataset.cursor; ring.classList.remove('label');
-    $('#play-txt').textContent = lang === 'en' ? 'Back to slider' : 'К слайдеру';
+    reel.hidden = false; ba.classList.add('playing'); play.classList.add('on'); delete ba.dataset.cursor; playLabel(true);
     reel.currentTime = 0; reel.play().catch(() => {});
   });
   reel.addEventListener('ended', stopReel);
   if (fine) ba.addEventListener('pointermove', e => { if (!reel.hidden) return; const r = ba.getBoundingClientRect(); const v = Math.round((e.clientX - r.left) / r.width * 100); range.value = v; ba.style.setProperty('--pos', v + '%'); });
+  AG.onLang(() => playLabel(!reel.hidden));
 
-  /* ---------- email wave + copy ---------- */
-  const mail = $('#mail'), addr = mail.textContent, toast = $('#toast');
-  mail.innerHTML = [...addr].map(c => `<span>${c}</span>`).join('');
-  const letters = $$('span', mail);
-  if (fine && !reduce) {
-    mail.addEventListener('pointermove', e => letters.forEach(s => {
-      const r = s.getBoundingClientRect(), d = Math.abs(e.clientX - (r.left + r.width / 2));
-      const k = Math.max(0, 1 - d / 140); s.style.transform = `translateY(${-k * 22}px) scale(${1 + k * .25})`; s.style.color = k > .6 ? 'var(--fg)' : '';
-    }));
-    mail.addEventListener('pointerleave', () => letters.forEach(s => { s.style.transform = ''; s.style.color = ''; }));
-  }
-  if (!fine && !reduce) mail.addEventListener('click', () => {
-    letters.forEach((l, i) => l.animate([{ transform: 'none' }, { transform: 'translateY(-16px) scale(1.18)', color: '#F2F1EC' }, { transform: 'none' }], { duration: 650, delay: i * 26, easing: 'cubic-bezier(.2,.8,.2,1)' }));
-    try { navigator.vibrate && navigator.vibrate(25); } catch (e) {}
-  });
+  /* ---------- reveal order inside lists ---------- */
+  svcs.forEach((el, i) => el.style.setProperty('--d', i));
 
-  /* ---------- mobile menu + sticky bar ---------- */
-  const burger = $('#burger'), mm = $('#mmenu');
-  function menu(open) {
-    burger.setAttribute('aria-expanded', open);
-    if (open) { mm.hidden = false; requestAnimationFrame(() => requestAnimationFrame(() => mm.classList.add('open'))); document.body.style.overflow = 'hidden'; }
-    else { mm.classList.remove('open'); document.body.style.overflow = ''; setTimeout(() => { if (!mm.classList.contains('open')) mm.hidden = true; }, 650); }
-  }
-  burger.addEventListener('click', () => menu(burger.getAttribute('aria-expanded') !== 'true'));
-  $$('a', mm).forEach(a => a.addEventListener('click', () => menu(false)));
-  addEventListener('keydown', e => { if (e.key === 'Escape') menu(false); });
-  const mbar = $('#mbar'), contactSec = $('#contact');
-  const barState = () => mbar.classList.toggle('show', scrollY > innerHeight * .7 && contactSec.getBoundingClientRect().top > innerHeight * .65);
-  addEventListener('scroll', barState, { passive: true }); barState();
-
-  let tt;
-  const say = msg => { toast.textContent = msg; toast.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove('on'), 1800); };
-  mail.addEventListener('click', () => {
-    const ok = () => say(lang === 'en' ? 'Email copied' : 'Почта скопирована');
-    const fallback = () => { const r = document.createRange(); r.selectNodeContents(mail); const s = getSelection(); s.removeAllRanges(); s.addRange(r); say(lang === 'en' ? 'Press Ctrl+C to copy' : 'Нажмите Ctrl+C, чтобы скопировать'); };
-    try { navigator.clipboard.writeText(addr).then(ok, fallback); } catch (e) { fallback(); }
-  });
-
-  /* ---------- preloader + hero entrance ---------- */
-  const pre = $('#pre');
-  let seen = false; try { seen = sessionStorage.getItem('ag-pre') === '1'; } catch (e) {}
-  if (reduce || seen) { pre.classList.add('gone'); }
-  else {
-    document.documentElement.classList.add('intro');
-    try { sessionStorage.setItem('ag-pre', '1'); } catch (e) {}
-    const nEl = $('#pre-n'), t0 = performance.now(), dur = 1500;
-    scramble($('#pre-name'), lang === 'en' ? 'Artur Gabaraev' : 'Артур Габараев');
-    (function count(now) {
-      const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3);
-      nEl.textContent = Math.round(e * 100); pre.style.setProperty('--p', e);
-      if (p < 1) return requestAnimationFrame(count);
-      setTimeout(() => {
-        pre.classList.add('done');
-        document.documentElement.classList.remove('intro'); document.documentElement.classList.add('enter');
-        setTimeout(() => pre.classList.add('gone'), 1100);
-      }, 180);
-    })(t0);
-  }
-  $$('.hero-left > *').forEach((el, i) => el.style.setProperty('--d', i));
-  $$('.stat').forEach((el, i) => el.style.setProperty('--d', i + 2));
-
-  /* ---------- clock ---------- */
-  const clock = $('#clock');
-  const tick = () => { try { clock.textContent = new Intl.DateTimeFormat('ru-RU', { timeZone: 'Europe/Moscow', hour: '2-digit', minute: '2-digit' }).format(new Date()); } catch (e) {} };
-  tick(); setInterval(tick, 15000);
-
-  /* ---------- scroll: progress bar, hiding header, velocity-driven ticker ---------- */
-  const nav = $('.nav'), track = $('#ticker');
-  let lastY = scrollY, vel = 0, tickX = 0;
-  addEventListener('scroll', () => {
-    const y = scrollY, dy = y - lastY; lastY = y;
-    vel += Math.max(-60, Math.min(60, dy)) * .25;
-    document.documentElement.style.setProperty('--sp', (y / Math.max(1, document.documentElement.scrollHeight - innerHeight)).toFixed(4));
-    if (!$('#mmenu').classList.contains('open')) nav.classList.toggle('away', dy > 4 && y > innerHeight * .6);
-    if (dy < -4) nav.classList.remove('away');
-  }, { passive: true });
-  if (reduce) track.classList.add('css');
-  else (function marquee() {
-    vel *= .92;
-    const dir = vel < -.5 ? -1 : 1;
-    tickX -= (.6 + Math.abs(vel) * .5) * dir;
-    const half = track.scrollWidth / 2;
-    if (half) { if (tickX <= -half) tickX += half; if (tickX > 0) tickX -= half; }
-    const skew = Math.max(-10, Math.min(10, vel * .5));
-    track.style.transform = 'translate3d(' + tickX.toFixed(1) + 'px,0,0) skewX(' + (-skew).toFixed(2) + 'deg)';
-    requestAnimationFrame(marquee);
-  })();
-
-  /* ---------- reveal on scroll ---------- */
-  if ('IntersectionObserver' in window && !reduce) {
-    $$('.sec-head > h2, .about-text h2, .ba-wrap h2, .flash').forEach(el => el.classList.add('rv'));
-    $$('.svc, .step, .job, .facts > div, .formats li, .sec-head p, .about-text > p, .ba-col').forEach(el => el.classList.add('rv-soft'));
-    [['.svc'], ['.step'], ['.job'], ['.facts > div'], ['.formats li']].forEach(([sel]) => $$(sel).forEach((el, i) => el.style.setProperty('--d', i % 8)));
-    document.documentElement.classList.add('rv-on');
-    const ro = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
-    $$('.rv, .rv-soft').forEach(el => ro.observe(el));
-  }
-
-  /* ---------- 3D tilt on the process cards ---------- */
-  if (fine && !reduce) $$('.step').forEach(c => {
-    c.addEventListener('pointermove', e => {
-      const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-      c.style.transition = 'transform .12s';
-      c.style.transform = 'perspective(900px) rotateX(' + ((.5 - y) * 10).toFixed(2) + 'deg) rotateY(' + ((x - .5) * 12).toFixed(2) + 'deg) translateY(-6px)';
-      c.style.setProperty('--gx', x * 100 + '%'); c.style.setProperty('--gy', y * 100 + '%');
-    });
-    c.addEventListener('pointerleave', () => { c.style.transition = 'transform .6s cubic-bezier(.2,.8,.2,1), border-color .3s'; c.style.transform = ''; });
-  });
-
-  /* ---------- click burst ---------- */
-  if (fine && !reduce) addEventListener('pointerdown', e => {
-    for (let i = 0; i < 2; i++) {
-      const b = document.createElement('span'); b.className = 'burst';
-      b.style.left = e.clientX + 'px'; b.style.top = e.clientY + 'px'; b.style.setProperty('--x', '0px'); b.style.setProperty('--y', '0px');
-      b.style.animationDelay = i * .08 + 's'; document.body.appendChild(b); setTimeout(() => b.remove(), 800);
-    }
-  });
-
-  /* ---------- easter egg: type "art" ---------- */
-  let keys = '', altTimer;
-  addEventListener('keydown', e => {
-    const k = { KeyA: 'a', KeyR: 'r', KeyT: 't' }[e.code] || '_';
-    keys = (keys + k).slice(-3);
-    if (keys !== 'art') return;
-    document.documentElement.classList.add('alt');
-    say(lang === 'en' ? 'You found the secret palette' : 'Вы нашли секретную палитру');
-    clearTimeout(altTimer); altTimer = setTimeout(() => document.documentElement.classList.remove('alt'), 10000);
-  });
-
-  /* ---------- init ---------- */
-  let saved = null; try { saved = localStorage.getItem('ag-lang'); } catch (e) {}
-  // A link ending in #en or #ru opens that language, so each version has its own address.
-  const fromHash = () => (location.hash === '#en' || location.hash === '#ru') ? location.hash.slice(1) : null;
-  // Without a link or an earlier choice: the country, when the host marks it on <html> (Russia gets
-  // Russian); otherwise the browser's language or a Russian time zone; everyone else gets English.
-  const geo = document.documentElement.dataset.geo;
-  const ruBrowser = () => {
-    const langs = navigator.languages || [navigator.language || ''];
-    let tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
-    return langs.some(l => /^ru\b/i.test(l)) || /^(Europe\/(Moscow|Samara|Volgograd|Kaliningrad|Kirov|Ulyanovsk|Saratov|Astrakhan)|Asia\/(Yekaterinburg|Omsk|Novosibirsk|Barnaul|Tomsk|Novokuznetsk|Krasnoyarsk|Irkutsk|Chita|Yakutsk|Khandyga|Vladivostok|Ust-Nera|Magadan|Sakhalin|Srednekolymsk|Kamchatka|Anadyr))$/.test(tz);
-  };
-  setLang(fromHash() || (saved === 'en' || saved === 'ru' ? saved : geo ? (geo === 'RU' ? 'ru' : 'en') : ruBrowser() ? 'ru' : 'en'), false);
-  addEventListener('hashchange', () => { const h = fromHash(); if (h && h !== lang) setLang(h, true); });
+  AG.init();
 })();
 </script>
 </body>
