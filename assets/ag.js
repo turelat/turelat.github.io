@@ -123,7 +123,11 @@ window.AG = (() => {
       }
       requestAnimationFrame(mag);
     })();
-    $$('[data-scramble]').forEach(el => el.addEventListener('mouseenter', () => { const h = el.innerHTML; scramble(el, el.textContent, h, 360, .5); }));
+    // the wave always runs towards the label's real text, so hovering again mid-wave cannot leave it garbled
+    $$('[data-scramble]').forEach(el => (el.closest('a, button') || el).addEventListener('mouseenter', () => {
+      const h = el.dataset.en ? (lang === 'en' ? el.dataset.en : el.dataset.ru) : (el._html ??= el.innerHTML);
+      scramble(el, plain(h), h, 360, .5);
+    }));
   }
 
   /* ---------- header, mobile menu, sticky bar ---------- */

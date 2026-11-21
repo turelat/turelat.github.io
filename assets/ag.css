@@ -40,7 +40,10 @@ h1, h2, h3 { font-family: Geologica, Manrope, sans-serif; text-wrap: balance; }
 .logo { font: 800 20px Geologica, sans-serif; letter-spacing: -.02em; }
 .logo i { font-style: normal; color: var(--red); }
 .links { display: flex; gap: 26px; font-size: 13.5px; color: var(--mut); }
-.links a { transition: color .25s; }
+.links a { transition: color .25s; padding: 10px 0; }
+/* the label is rewritten letter by letter on hover; clicks must land on the link itself, not on letters that vanish */
+.links a > *, .mmenu a > *, .sec-hd .more > *, [data-scramble] { pointer-events: none; }
+section[id], main[id] { scroll-margin-top: 80px; }
 .links a:hover, .links a[aria-current] { color: var(--fg); }
 .links b { color: var(--red); font-weight: 600; margin-right: 4px; }
 .sp { flex: 1; }
