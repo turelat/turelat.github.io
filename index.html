@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@300..900&family=JetBrains+Mono:wght@400;600&family=Manrope:wght@400..800&display=swap">
-<link rel="stylesheet" href="assets/ag.css?v=3">
+<link rel="stylesheet" href="assets/ag.css?v=4">
 </head>
 <body>
 <script>try { var t = localStorage.getItem('ag-theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {} document.documentElement.dataset.titleRu = 'Артур Габараев'; document.documentElement.dataset.titleEn = 'Artur Gabaraev';</script>
@@ -121,8 +121,9 @@
 .w-noble { grid-column: span 12; display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); }
 .w-noble .txt { justify-content: flex-end; padding: 32px; gap: 14px; }
 .w-noble h3 { font-size: clamp(26px, 2.6vw, 36px); }
-.stage { position: relative; background: var(--cell2); padding: 40px 0 0 40px; min-height: 300px; overflow: hidden; }
-.browser { border-radius: 10px 0 0 0; overflow: hidden; background: #0d0d0f; box-shadow: 0 30px 60px -30px rgba(0,0,0,.5); }
+/* a laptop-style window with the phone version standing in front of it, both shown whole */
+.stage { position: relative; display: flex; align-items: center; background: radial-gradient(90% 80% at 30% 20%, var(--cell), var(--cell2)); padding: clamp(24px, 4vw, 52px) clamp(56px, 11%, 130px) clamp(24px, 4vw, 52px) clamp(20px, 4vw, 52px); overflow: hidden; }
+.browser { width: 100%; border-radius: 12px; overflow: hidden; background: #0d0d0f; box-shadow: 0 0 0 1px rgba(0,0,0,.06), 0 40px 70px -35px rgba(0,0,0,.55); transition: transform .9s var(--ease); }
 .browser .bar { height: 30px; display: flex; align-items: center; gap: 6px; padding: 0 12px; background: #1b1b1f; }
 .browser .bar i { width: 9px; height: 9px; border-radius: 50%; background: #3a3a40; }
 .browser .bar span { margin-left: 14px; flex: 1; max-width: 300px; height: 18px; border-radius: 6px; background: #26262b; font: 10.5px/18px 'JetBrains Mono', monospace; color: #8a8a90; padding: 0 10px; overflow: hidden; white-space: nowrap; }
@@ -130,9 +131,11 @@
 .shots img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: opacity 1s var(--ease); }
 .shots img + img { opacity: 0; }
 .shots.alt img + img { opacity: 1; }
-.phone { position: absolute; right: 6%; bottom: -18%; width: 22%; min-width: 110px; border-radius: 22px; padding: 7px; background: #0d0d0f; box-shadow: 0 30px 50px -20px rgba(0,0,0,.6); transition: transform .8s var(--ease); }
-.phone img { border-radius: 16px; aspect-ratio: 430 / 820; object-fit: cover; object-position: top; width: 100%; }
-.w-noble:hover .phone { transform: translateY(-6%); }
+.phone { position: absolute; right: clamp(14px, 4%, 48px); bottom: clamp(14px, 3vw, 40px); width: clamp(74px, 19%, 190px); border-radius: 22px; padding: 6px; background: #0d0d0f; box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 30px 50px -20px rgba(0,0,0,.6); transition: transform .9s var(--ease); }
+.phone img { border-radius: 16px; aspect-ratio: 430 / 860; object-fit: cover; object-position: top; width: 100%; }
+.w-noble:hover .phone { transform: translateY(-10px); }
+.w-noble:hover .browser { transform: translateY(-4px); }
+@media (max-width: 560px) { .phone { border-radius: 14px; padding: 4px; } .phone img { border-radius: 10px; } .browser { border-radius: 8px; } .browser .bar { height: 20px; } .browser .bar i { width: 6px; height: 6px; } .browser .bar span { display: none; } }
 .w-video { grid-column: span 12; display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); }
 .w-video .vid { padding-bottom: 20px; border-right: 1px solid var(--line); }
 .w-video .txt { justify-content: flex-end; padding: 32px; gap: 14px; }
@@ -440,7 +443,7 @@
 <div class="toast" id="toast" role="status"></div>
 <div class="cur" aria-hidden="true"></div><div class="ring" aria-hidden="true"><i></i><b></b></div>
 
-<script src="assets/ag.js?v=3"></script>
+<script src="assets/ag.js?v=4"></script>
 <script>
 (() => {
   const { $, $$, fine, reduce, mouse } = AG;
